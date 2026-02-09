@@ -1,0 +1,41 @@
+[gd_scene load_steps=7 format=3 uid="uid://b2wbgpcnx54nu"]
+
+[ext_resource type="Script" uid="uid://bcrs0qr5xqh8d" path="res://Scripts/cell_behaviour.gd" id="1_3h4vj"]
+[ext_resource type="Material" uid="uid://svwx2d8mon2x" path="res://Materials/cell_active.tres" id="2_wfxbd"]
+[ext_resource type="Material" uid="uid://ctfvqybncycxm" path="res://Materials/cell_inactive.tres" id="3_ngikn"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_aphad"]
+size = Vector3(1, 2.4140625, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mk0eq"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_tdfqk"]
+material = SubResource("StandardMaterial3D_mk0eq")
+size = Vector3(1, 0.21, 1)
+
+[node name="Cell" type="Node3D"]
+script = ExtResource("1_3h4vj")
+active_material = ExtResource("2_wfxbd")
+inactive_material = ExtResource("3_ngikn")
+
+[node name="Area3D" type="Area3D" parent="."]
+collision_layer = 4
+input_capture_on_drag = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0986328, 0)
+shape = SubResource("BoxShape3D_aphad")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_tdfqk")
+
+[node name="DebugCoordinates" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.2587245, 0)
+visible = false
+pixel_size = 0.0115
+billboard = 1
+text = "666"
+
+[connection signal="area_exited" from="Area3D" to="." method="_on_area_3d_area_exited"]
+[connection signal="input_event" from="Area3D" to="." method="_on_area_3d_input_event"]
+[connection signal="mouse_entered" from="Area3D" to="." method="_on_area_3d_mouse_entered"]

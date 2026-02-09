@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://dkxhh57c5osgc"]
+
+[sub_resource type="Curve" id="Curve_ogxq5"]
+_data = [Vector2(0, 0.49438208), 0.0, 0.27691188, 0, 0, Vector2(0.460733, 0.8089888), 0.19870989, 0.19870989, 0, 0, Vector2(1, 0.73033714), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="TubeTrailMesh" id="TubeTrailMesh_v7h1m"]
+radius = 1.52
+radial_steps = 18
+sections = 2
+curve = SubResource("Curve_ogxq5")
+
+[node name="Shield" type="Node3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.33, 0, 0, 0, -1.4424758e-08, 0.33, 0, -0.33, -1.4424758e-08, 0, 0.4647988, 0)
+mesh = SubResource("TubeTrailMesh_v7h1m")

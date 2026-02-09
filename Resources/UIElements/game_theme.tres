@@ -1,0 +1,16 @@
+[gd_resource type="Theme" load_steps=5 format=3 uid="uid://cpp1enuwj1cu"]
+
+[ext_resource type="FontFile" uid="uid://ccv6wbl2x0nhv" path="res://Fonts/AlmendraSC-Regular.ttf" id="1_essnn"]
+[ext_resource type="StyleBox" uid="uid://bcqi6l4tojd2b" path="res://Resources/UIElements/button_normal_texture.tres" id="2_cw16i"]
+[ext_resource type="StyleBox" uid="uid://ccphbqq3g2a1o" path="res://Resources/UIElements/button_hover_texture.tres" id="2_l0vl4"]
+[ext_resource type="StyleBox" uid="uid://bmanidvdx3ikv" path="res://Resources/UIElements/panel_texture.tres" id="2_t5usc"]
+
+[resource]
+Button/font_sizes/font_size = 20
+Button/fonts/font = ExtResource("1_essnn")
+Button/styles/hover = ExtResource("2_l0vl4")
+Button/styles/normal = ExtResource("2_cw16i")
+Button/styles/pressed = ExtResource("2_l0vl4")
+Label/font_sizes/font_size = 26
+Label/fonts/font = ExtResource("1_essnn")
+Panel/styles/panel = ExtResource("2_t5usc")

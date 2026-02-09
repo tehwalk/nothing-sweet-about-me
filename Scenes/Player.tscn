@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=3 uid="uid://bfl33oxe24dcs"]
+
+[ext_resource type="Script" uid="uid://ch6i1k5i28vu5" path="res://Scripts/PlayerMovement.gd" id="1_qlg84"]
+[ext_resource type="PackedScene" uid="uid://dlr01cwt5k1kg" path="res://Meshes/piece_base.blend" id="2_kyqiw"]
+[ext_resource type="Material" uid="uid://bmksjtq0vr0d7" path="res://Materials/watercolor_player.tres" id="3_gntrk"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_db810"]
+
+[node name="Player" type="Node3D"]
+script = ExtResource("1_qlg84")
+shieldPointsMax = 0
+weaponPointsMax = 0
+
+[node name="piece_base" parent="." instance=ExtResource("2_kyqiw")]
+transform = Transform3D(-2.076291e-08, 0, -0.475, 0, 0.475, 0, 0.475, 0, -2.076291e-08, 0, 0.27599096, 0)
+
+[node name="body" parent="piece_base" index="0"]
+transform = Transform3D(0.9659259, 0, -0.25881907, 0, 1, 0, 0.25881907, 0, 0.9659259, 0, 0, 0)
+surface_material_override/0 = ExtResource("3_gntrk")
+
+[node name="hands" parent="piece_base" index="1"]
+surface_material_override/0 = ExtResource("3_gntrk")
+
+[node name="Area3D" type="Area3D" parent="."]
+collision_mask = 6
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+shape = SubResource("CapsuleShape3D_db810")
+
+[editable path="piece_base"]

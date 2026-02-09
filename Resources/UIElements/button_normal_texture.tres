@@ -1,0 +1,11 @@
+[gd_resource type="StyleBoxTexture" load_steps=2 format=3 uid="uid://bcqi6l4tojd2b"]
+
+[ext_resource type="Texture2D" uid="uid://b53n5gw72lbft" path="res://Sprites/PNG/Double/Panel/panel-009.png" id="1_74fe3"]
+
+[resource]
+texture = ExtResource("1_74fe3")
+texture_margin_left = 24.0
+texture_margin_top = 24.0
+texture_margin_right = 24.0
+texture_margin_bottom = 24.0
+modulate_color = Color(0.1764706, 0.003921569, 0.078431375, 1)

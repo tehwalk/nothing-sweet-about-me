@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="SpawnTable" load_steps=9 format=3 uid="uid://bc81qgq7e7gew"]
+
+[ext_resource type="Script" uid="uid://cgx8x7jvgqkqn" path="res://Scripts/EnemyClass.gd" id="1_d7nrn"]
+[ext_resource type="Script" uid="uid://ddcxq83tfwp4q" path="res://Scripts/PickableClass.gd" id="2_edb45"]
+[ext_resource type="Resource" uid="uid://xtyhf0od1502" path="res://Resources/Enemies/TestEnemy.tres" id="2_tpgre"]
+[ext_resource type="Resource" uid="uid://cxeupcfl6348v" path="res://Resources/Enemies/TestEnemy2.tres" id="3_cs1d1"]
+[ext_resource type="Script" uid="uid://d3yumyw0uyeoa" path="res://Scripts/spawn_table.gd" id="3_jqdan"]
+[ext_resource type="Resource" uid="uid://bcs7qqe7myqva" path="res://Resources/Items/Sword_1.tres" id="5_u0a0a"]
+[ext_resource type="Resource" uid="uid://cc8hnhpm3ia0f" path="res://Resources/Items/Shield_1.tres" id="6_kyci8"]
+[ext_resource type="Resource" uid="uid://dctfqet35kkh0" path="res://Resources/Items/Health_1.tres" id="7_cs1d1"]
+
+[resource]
+script = ExtResource("3_jqdan")
+enemy_table = Dictionary[ExtResource("1_d7nrn"), int]({
+ExtResource("2_tpgre"): 50,
+ExtResource("3_cs1d1"): 50
+})
+pickable_table = Dictionary[ExtResource("2_edb45"), int]({
+ExtResource("5_u0a0a"): 25,
+ExtResource("6_kyci8"): 50,
+ExtResource("7_cs1d1"): 25
+})
+metadata/_custom_type_script = "uid://d3yumyw0uyeoa"

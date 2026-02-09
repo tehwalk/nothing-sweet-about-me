@@ -1,0 +1,234 @@
+[gd_scene load_steps=18 format=3 uid="uid://c57b4dvvxshqh"]
+
+[ext_resource type="Material" uid="uid://7oy746vt8jfv" path="res://Materials/new_panorama_sky_material.tres" id="1_ggebb"]
+[ext_resource type="Theme" uid="uid://cpp1enuwj1cu" path="res://Resources/UIElements/game_theme.tres" id="1_j2nek"]
+[ext_resource type="Script" uid="uid://nf0gd3x3ovcu" path="res://Scripts/grid_creation.gd" id="1_reibu"]
+[ext_resource type="Script" uid="uid://bapvsykjtbuxn" path="res://Scripts/world_control.gd" id="1_y1d41"]
+[ext_resource type="Script" uid="uid://bpph5fevy6ou8" path="res://Scripts/game_over_screen.gd" id="2_j2nek"]
+[ext_resource type="PackedScene" uid="uid://bfl33oxe24dcs" path="res://Scenes/Player.tscn" id="2_vy0v6"]
+[ext_resource type="Resource" uid="uid://cxeupcfl6348v" path="res://Resources/Enemies/TestEnemy2.tres" id="3_lxi88"]
+[ext_resource type="Resource" uid="uid://xtyhf0od1502" path="res://Resources/Enemies/TestEnemy.tres" id="4_kh1kx"]
+[ext_resource type="Resource" uid="uid://cc8hnhpm3ia0f" path="res://Resources/Items/Shield_1.tres" id="5_2ebvk"]
+[ext_resource type="Resource" uid="uid://bcs7qqe7myqva" path="res://Resources/Items/Sword_1.tres" id="6_xii7v"]
+[ext_resource type="Script" uid="uid://djmgf6iptuapw" path="res://Scripts/level_manager.gd" id="11_wv7vi"]
+[ext_resource type="Script" uid="uid://d3yumyw0uyeoa" path="res://Scripts/spawn_table.gd" id="12_lrurl"]
+[ext_resource type="Resource" uid="uid://bc81qgq7e7gew" path="res://Resources/SpawnTables/table_lvl_1.tres" id="13_2e2tx"]
+
+[sub_resource type="Sky" id="Sky_ggebb"]
+sky_material = ExtResource("1_ggebb")
+
+[sub_resource type="Environment" id="Environment_ctd5p"]
+background_mode = 2
+background_energy_multiplier = 0.5
+sky = SubResource("Sky_ggebb")
+fog_mode = 1
+fog_light_energy = 3.61
+fog_density = 1.0
+fog_aerial_perspective = 0.652
+fog_sky_affect = 0.098
+fog_height_density = 0.003
+volumetric_fog_density = 0.3543
+adjustment_enabled = true
+adjustment_brightness = 1.35
+adjustment_contrast = 1.09
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mlo0n"]
+albedo_color = Color(0, 0.633193, 0.634609, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_ol5s3"]
+material = SubResource("StandardMaterial3D_mlo0n")
+
+[node name="MasterNode" type="Node3D"]
+
+[node name="LevelManager" type="Node" parent="." node_paths=PackedStringArray("lvl_label")]
+script = ExtResource("11_wv7vi")
+level_spawn_tables = Array[ExtResource("12_lrurl")]([ExtResource("13_2e2tx")])
+lvl_label = NodePath("../CanvasLayer/PlayerUI/LevelLabel")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(0.9999985, 0.0011218778, -0.0013370005, 0, 0.76604414, 0.642788, 0.001745331, -0.64278704, 0.766043, 0, 16.183489, 18.795889)
+doppler_tracking = 1
+current = true
+fov = 27.0
+size = 10.0
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.48944336, 0.8720351, 0, -0.8720351, 0.48944336, 1.72777, 9.545618, 4.9428816)
+light_color = Color(0.9508986, 0.9133705, 0.60843766, 1)
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_ctd5p")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="PlayerUI" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme = ExtResource("1_j2nek")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/PlayerUI"]
+layout_mode = 0
+offset_left = 32.0
+offset_top = 24.0
+offset_right = 126.0
+offset_bottom = 169.0
+alignment = 1
+
+[node name="HealthUI" type="HBoxContainer" parent="CanvasLayer/PlayerUI/VBoxContainer"]
+layout_mode = 2
+
+[node name="HealthText" type="Label" parent="CanvasLayer/PlayerUI/VBoxContainer/HealthUI"]
+layout_mode = 2
+text = "HEALTH:"
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/PlayerUI/VBoxContainer/HealthUI"]
+layout_mode = 2
+
+[node name="WeaponUI" type="HBoxContainer" parent="CanvasLayer/PlayerUI/VBoxContainer"]
+layout_mode = 2
+
+[node name="WeaponText" type="Label" parent="CanvasLayer/PlayerUI/VBoxContainer/WeaponUI"]
+layout_mode = 2
+text = "HEALTH:"
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/PlayerUI/VBoxContainer/WeaponUI"]
+layout_mode = 2
+
+[node name="ShieldUI" type="HBoxContainer" parent="CanvasLayer/PlayerUI/VBoxContainer"]
+layout_mode = 2
+
+[node name="ShieldText" type="Label" parent="CanvasLayer/PlayerUI/VBoxContainer/ShieldUI"]
+layout_mode = 2
+text = "HEALTH:"
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/PlayerUI/VBoxContainer/ShieldUI"]
+layout_mode = 2
+
+[node name="GoldUI" type="HBoxContainer" parent="CanvasLayer/PlayerUI/VBoxContainer"]
+layout_mode = 2
+
+[node name="GoldText" type="Label" parent="CanvasLayer/PlayerUI/VBoxContainer/GoldUI"]
+layout_mode = 2
+text = "GOLD: NIL
+"
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/PlayerUI/VBoxContainer/GoldUI"]
+layout_mode = 2
+
+[node name="LevelLabel" type="Label" parent="CanvasLayer/PlayerUI"]
+layout_mode = 0
+offset_left = 472.0
+offset_top = 24.0
+offset_right = 702.0
+offset_bottom = 47.0
+text = "LEVEL"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="GameOverUI" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_j2nek")
+script = ExtResource("2_j2nek")
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer/GameOverUI"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.7176471)
+
+[node name="Panel" type="Panel" parent="CanvasLayer/GameOverUI"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -391.0
+offset_top = -196.125
+offset_right = 389.0481
+offset_bottom = 196.125
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/GameOverUI/Panel"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -92.5
+offset_top = 45.125
+offset_right = 92.5
+offset_bottom = 101.125
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 46
+text = "YOU LOST"
+
+[node name="ButtonContainer" type="VBoxContainer" parent="CanvasLayer/GameOverUI/Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -114.5
+offset_top = -51.0
+offset_right = 114.5
+offset_bottom = 104.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 9
+alignment = 1
+
+[node name="RetryButton" type="Button" parent="CanvasLayer/GameOverUI/Panel/ButtonContainer"]
+layout_mode = 2
+text = "RETRY"
+
+[node name="QuitButton" type="Button" parent="CanvasLayer/GameOverUI/Panel/ButtonContainer"]
+layout_mode = 2
+text = "QUIT TO MAIN MENU"
+
+[node name="world" type="Node3D" parent="."]
+script = ExtResource("1_y1d41")
+rotation_factor = 0.002
+rotation_max = 2.0
+
+[node name="Grid" type="Node3D" parent="world" node_paths=PackedStringArray("level_manager", "player")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.977105, 0.578187, -5.3218555)
+script = ExtResource("1_reibu")
+level_manager = NodePath("../../LevelManager")
+player = NodePath("../Player")
+width = 5
+height = 5
+size = 2
+offset = 0.1
+enemy_spawn_percent = 0.7
+enemyResources = [ExtResource("3_lxi88"), ExtResource("4_kh1kx")]
+itemResouces = [ExtResource("5_2ebvk"), ExtResource("6_xii7v")]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="world/Grid"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6, 0)
+mesh = SubResource("SphereMesh_ol5s3")
+skeleton = NodePath("../../..")
+
+[node name="Player" parent="world" node_paths=PackedStringArray("healthText", "weaponText", "shieldText") instance=ExtResource("2_vy0v6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.33347, 0, 0)
+shieldPointsMax = 1
+healthText = NodePath("../../CanvasLayer/PlayerUI/VBoxContainer/HealthUI/HealthText")
+weaponText = NodePath("../../CanvasLayer/PlayerUI/VBoxContainer/WeaponUI/WeaponText")
+shieldText = NodePath("../../CanvasLayer/PlayerUI/VBoxContainer/ShieldUI/ShieldText")
+
+[connection signal="button_down" from="CanvasLayer/GameOverUI/Panel/ButtonContainer/RetryButton" to="CanvasLayer/GameOverUI" method="_retry"]

@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="PickableClass" load_steps=3 format=3 uid="uid://dctfqet35kkh0"]
+
+[ext_resource type="Script" uid="uid://ddcxq83tfwp4q" path="res://Scripts/PickableClass.gd" id="1_nhrfm"]
+[ext_resource type="PackedScene" uid="uid://cv1rxjdjmgdqs" path="res://Scenes/Models/health_potion_model.tscn" id="1_uk2oj"]
+
+[resource]
+script = ExtResource("1_nhrfm")
+points = 1
+mesh = ExtResource("1_uk2oj")
+metadata/_custom_type_script = "uid://ddcxq83tfwp4q"
