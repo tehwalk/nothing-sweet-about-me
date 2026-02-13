@@ -1,0 +1,27 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://dqgr2g0wtv8p7"]
+
+[ext_resource type="Shader" uid="uid://ejwdm32v40km" path="res://addons/flexible_toon_shader/hatch_toon.gdshader" id="1_ab6cj"]
+[ext_resource type="Texture2D" uid="uid://cbt0sdbiiugjn" path="res://Sprites/a2_opaque.png" id="2_suj2u"]
+
+[sub_resource type="Gradient" id="Gradient_p2u1h"]
+offsets = PackedFloat32Array(0)
+colors = PackedColorArray(0.35145003, 0.6012866, 0.91730577, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_j1io5"]
+gradient = SubResource("Gradient_p2u1h")
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_ab6cj")
+shader_parameter/albedo = Color(1, 1, 1, 1)
+shader_parameter/albedo_texture = SubResource("GradientTexture1D_j1io5")
+shader_parameter/cuts = 8
+shader_parameter/wrap = 0.0
+shader_parameter/steepness = 1.11200000532
+shader_parameter/use_attenuation = true
+shader_parameter/use_rim = false
+shader_parameter/rim_width = 8.0
+shader_parameter/rim_color = Color(1, 1, 1, 1)
+shader_parameter/hatch_scale = 0.515
+shader_parameter/use_triplanar = true
+shader_parameter/hatch_texture = ExtResource("2_suj2u")

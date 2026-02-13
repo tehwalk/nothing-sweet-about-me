@@ -1,15 +1,16 @@
-[gd_resource type="PanoramaSkyMaterial" load_steps=4 format=3 uid="uid://7oy746vt8jfv"]
+[gd_resource type="PanoramaSkyMaterial" format=3 uid="uid://7oy746vt8jfv"]
 
 [sub_resource type="Gradient" id="Gradient_8l4d2"]
-colors = PackedColorArray(0.032312218, 0.0015867596, 0.07819081, 1, 0.5764706, 1, 0.4627451, 1)
+offsets = PackedFloat32Array(0, 0.51625, 1)
+colors = PackedColorArray(0.483316, 0.053242482, 0.64633083, 1, 0.7294118, 0.39215687, 0.3254902, 1, 0.5764706, 1, 0.4627451, 1)
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_khluh"]
-noise_type = 3
-frequency = 0.0395
-fractal_type = 2
+noise_type = 2
+frequency = 0.0677
+fractal_type = 0
 fractal_octaves = 2
 fractal_gain = 1.035
-domain_warp_type = 2
+cellular_return_type = 6
 domain_warp_fractal_type = 2
 
 [sub_resource type="NoiseTexture2D" id="NoiseTexture2D_vi242"]

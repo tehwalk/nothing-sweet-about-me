@@ -1,7 +1,6 @@
 extends Node
 class_name LevelManager
 
-##TODO: Add more stuff (enemies and pickables)
 @export var level_spawn_tables:Array[SpawnTable]
 @export var lvl_label:Label
 var current_table:SpawnTable
@@ -15,7 +14,7 @@ func _level_up():
 	_set_level()
 	
 func _set_level():
-	lvl_label.text = "LEVEL: " + str(lvl)
+	lvl_label.text = "LEVEL " + str(lvl+1)
 	if lvl >= level_spawn_tables.size(): return
 	current_table = level_spawn_tables[lvl]
 	
@@ -47,15 +46,8 @@ func _get_pickable_data() -> PickableClass:
 		selected -= current_table.pickable_table[e]
 	return null
 
-#func _pick_zombie_type()->ZombieType:
-	#var rng = RandomNumberGenerator.new()
-	#rng.randomize()
-	#var weighted_sum = 0
-	#for z in zombie_spawn_table.table:
-		#weighted_sum += zombie_spawn_table.table[z]
-	#var selected = rng.randi_range(0, weighted_sum)
-	#for z in zombie_spawn_table.table:
-		#if selected <= zombie_spawn_table.table[z]:
-			#return z
-		#selected -= zombie_spawn_table.table[z]
-	#return null
+func _has_boss() -> bool:
+	return current_table.spawn_boss
+	
+func _has_merchant()->bool:
+	return current_table.spawn_merchant

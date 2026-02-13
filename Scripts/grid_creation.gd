@@ -15,6 +15,7 @@ const cell = preload("res://Scenes/Cell.tscn")
 const enemy = preload("res://Scenes/Enemy.tscn")
 const pickable = preload("res://Scenes/Pickable.tscn")
 const portal = preload("res://Scenes/Portal.tscn")
+const boss = preload("res://Scenes/Boss.tscn")
 var cellList:Array
 var playerCell:Cell
 @export var enemyResources: Array
@@ -56,9 +57,14 @@ func place_elements():
 	var availableCells = cellList.duplicate()
 	var top_cells = availableCells.filter(func(x): return x.cell_index.y == 0)
 	var portal_pos = top_cells.pick_random()
-	var portal_instance = portal.instantiate()
-	add_child(portal_instance)
-	portal_instance.position = portal_pos.position
+	if level_manager._has_boss():
+		var boss_instance = boss.instantiate()
+		add_child(boss_instance)
+		boss_instance.position = portal_pos.position
+	else:
+		var portal_instance = portal.instantiate()
+		add_child(portal_instance)
+		portal_instance.position = portal_pos.position
 	availableCells.erase(portal_pos)
 	
 	var number = availableCells.size()*enemy_spawn_percent

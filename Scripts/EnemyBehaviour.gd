@@ -6,8 +6,6 @@ class_name Enemy
 var enemyData:EnemyClass
 
 func _set_enemy():
-	#enemyMesh = get_node("MeshInstance3D") as MeshInstance3D
-	#enemyMesh.mesh = enemyData.mesh
 	var enemyMesh = enemyData.mesh.instantiate()
 	add_child(enemyMesh)
 	label.text = "Life: " + str(enemyData.hit_points)

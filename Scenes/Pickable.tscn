@@ -1,25 +1,28 @@
-[gd_scene load_steps=3 format=3 uid="uid://bdcbemdutxr4g"]
+[gd_scene format=3 uid="uid://bdcbemdutxr4g"]
 
 [ext_resource type="Script" uid="uid://l1sf8gfvnqqo" path="res://Scripts/PickableBehaviour.gd" id="1_x4jpd"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_14etq"]
 
-[node name="Pickable" type="Node3D"]
+[node name="Pickable" type="Node3D" unique_id=1115896179]
 script = ExtResource("1_x4jpd")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=889141555]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.97, 0)
 
-[node name="Area3D" type="Area3D" parent="."]
+[node name="Area3D" type="Area3D" parent="." unique_id=1893274767]
 transform = Transform3D(0.57, 0, 0, 0, 0.57, 0, 0, 0, 0.57, 0, 0, 0)
 collision_layer = 2
+input_ray_pickable = false
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=1691449066]
 shape = SubResource("BoxShape3D_14etq")
 
-[node name="Label3D" type="Label3D" parent="."]
+[node name="Label3D" type="Label3D" parent="." unique_id=1495692666]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
 billboard = 1
+render_priority = 1
+outline_render_priority = 0
 text = "YEAH
 "
 font_size = 50

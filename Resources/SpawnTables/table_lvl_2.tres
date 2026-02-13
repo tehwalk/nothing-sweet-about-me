@@ -1,0 +1,31 @@
+[gd_resource type="Resource" script_class="SpawnTable" format=3 uid="uid://dbrppkqv37vi0"]
+
+[ext_resource type="Script" uid="uid://cgx8x7jvgqkqn" path="res://Scripts/resources/EnemyClass.gd" id="1_gbwlg"]
+[ext_resource type="Resource" uid="uid://xtyhf0od1502" path="res://Resources/Enemies/TestEnemy.tres" id="2_08rw1"]
+[ext_resource type="Resource" uid="uid://cxeupcfl6348v" path="res://Resources/Enemies/TestEnemy2.tres" id="3_gmxkc"]
+[ext_resource type="Script" uid="uid://ddcxq83tfwp4q" path="res://Scripts/resources/PickableClass.gd" id="4_iwjeo"]
+[ext_resource type="Resource" uid="uid://ckoo80r3urukr" path="res://Resources/Enemies/TestEnemy3.tres" id="4_tvicf"]
+[ext_resource type="Resource" uid="uid://dbtx8bevr7pla" path="res://Resources/Enemies/TestEnemy4.tres" id="5_d5p56"]
+[ext_resource type="Resource" uid="uid://bcs7qqe7myqva" path="res://Resources/Items/Attack/Sword_1.tres" id="5_tvicf"]
+[ext_resource type="Resource" uid="uid://cc8hnhpm3ia0f" path="res://Resources/Items/Defense/Shield_1.tres" id="6_d5p56"]
+[ext_resource type="Resource" uid="uid://dctfqet35kkh0" path="res://Resources/Items/Health/Health_1.tres" id="7_rh54l"]
+[ext_resource type="Script" uid="uid://d3yumyw0uyeoa" path="res://Scripts/resources/spawn_table.gd" id="8_qsgt3"]
+[ext_resource type="Resource" uid="uid://cjhm3274owqgy" path="res://Resources/Items/Defense/Shield_2.tres" id="10_rh54l"]
+[ext_resource type="Resource" uid="uid://ditw6qo8y8ehm" path="res://Resources/Items/Attack/Sword_2.tres" id="11_qsgt3"]
+
+[resource]
+script = ExtResource("8_qsgt3")
+enemy_table = Dictionary[ExtResource("1_gbwlg"), int]({
+ExtResource("2_08rw1"): 35,
+ExtResource("3_gmxkc"): 35,
+ExtResource("4_tvicf"): 25,
+ExtResource("5_d5p56"): 5
+})
+pickable_table = Dictionary[ExtResource("4_iwjeo"), int]({
+ExtResource("5_tvicf"): 23,
+ExtResource("6_d5p56"): 23,
+ExtResource("7_rh54l"): 25,
+ExtResource("10_rh54l"): 15,
+ExtResource("11_qsgt3"): 15
+})
+metadata/_custom_type_script = "uid://d3yumyw0uyeoa"

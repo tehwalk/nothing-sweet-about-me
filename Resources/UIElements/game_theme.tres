@@ -1,9 +1,17 @@
-[gd_resource type="Theme" load_steps=5 format=3 uid="uid://cpp1enuwj1cu"]
+[gd_resource type="Theme" format=3 uid="uid://cpp1enuwj1cu"]
 
 [ext_resource type="FontFile" uid="uid://ccv6wbl2x0nhv" path="res://Fonts/AlmendraSC-Regular.ttf" id="1_essnn"]
 [ext_resource type="StyleBox" uid="uid://bcqi6l4tojd2b" path="res://Resources/UIElements/button_normal_texture.tres" id="2_cw16i"]
 [ext_resource type="StyleBox" uid="uid://ccphbqq3g2a1o" path="res://Resources/UIElements/button_hover_texture.tres" id="2_l0vl4"]
 [ext_resource type="StyleBox" uid="uid://bmanidvdx3ikv" path="res://Resources/UIElements/panel_texture.tres" id="2_t5usc"]
+[ext_resource type="Texture2D" uid="uid://ix8nrwxcp5il" path="res://Sprites/PNG/Double/Border/panel-border-005.png" id="5_0yf0e"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_kxnlp"]
+texture = ExtResource("5_0yf0e")
+texture_margin_left = 12.0
+texture_margin_top = 12.0
+texture_margin_right = 12.0
+texture_margin_bottom = 12.0
 
 [resource]
 Button/font_sizes/font_size = 20
@@ -14,3 +22,4 @@ Button/styles/pressed = ExtResource("2_l0vl4")
 Label/font_sizes/font_size = 26
 Label/fonts/font = ExtResource("1_essnn")
 Panel/styles/panel = ExtResource("2_t5usc")
+PanelContainer/styles/panel = SubResource("StyleBoxTexture_kxnlp")

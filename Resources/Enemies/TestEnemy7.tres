@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="EnemyClass" format=3 uid="uid://dqe7wnhcjrigu"]
+
+[ext_resource type="PackedScene" uid="uid://beklug2x3bm3x" path="res://Scenes/Models/enemy_model.tscn" id="1_nqffj"]
+[ext_resource type="Script" uid="uid://cgx8x7jvgqkqn" path="res://Scripts/resources/EnemyClass.gd" id="2_ut6hn"]
+
+[resource]
+script = ExtResource("2_ut6hn")
+hit_points = 7
+xp_points = 35
+mesh = ExtResource("1_nqffj")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://c57b4dvvxshqh"]
+[gd_scene format=3 uid="uid://c57b4dvvxshqh"]
 
 [ext_resource type="Material" uid="uid://7oy746vt8jfv" path="res://Materials/new_panorama_sky_material.tres" id="1_ggebb"]
 [ext_resource type="Theme" uid="uid://cpp1enuwj1cu" path="res://Resources/UIElements/game_theme.tres" id="1_j2nek"]
@@ -8,11 +8,31 @@
 [ext_resource type="PackedScene" uid="uid://bfl33oxe24dcs" path="res://Scenes/Player.tscn" id="2_vy0v6"]
 [ext_resource type="Resource" uid="uid://cxeupcfl6348v" path="res://Resources/Enemies/TestEnemy2.tres" id="3_lxi88"]
 [ext_resource type="Resource" uid="uid://xtyhf0od1502" path="res://Resources/Enemies/TestEnemy.tres" id="4_kh1kx"]
-[ext_resource type="Resource" uid="uid://cc8hnhpm3ia0f" path="res://Resources/Items/Shield_1.tres" id="5_2ebvk"]
-[ext_resource type="Resource" uid="uid://bcs7qqe7myqva" path="res://Resources/Items/Sword_1.tres" id="6_xii7v"]
+[ext_resource type="Shader" uid="uid://c34lxhrp4r8f7" path="res://Shaders/outline_shader_v2.gdshader" id="4_lrurl"]
+[ext_resource type="Resource" uid="uid://dbrppkqv37vi0" path="res://Resources/SpawnTables/table_lvl_2.tres" id="4_rj06a"]
+[ext_resource type="Resource" uid="uid://cc8hnhpm3ia0f" path="res://Resources/Items/Defense/Shield_1.tres" id="5_2ebvk"]
+[ext_resource type="Resource" uid="uid://cd1npo2iorxwf" path="res://Resources/SpawnTables/table_lvl_3.tres" id="5_etx36"]
+[ext_resource type="Resource" uid="uid://bcs7qqe7myqva" path="res://Resources/Items/Attack/Sword_1.tres" id="6_xii7v"]
+[ext_resource type="Script" uid="uid://qbsfshs4rxbi" path="res://Scripts/sky_animation.gd" id="8_etx36"]
+[ext_resource type="Texture2D" uid="uid://cc1ynk0y73xr2" path="res://Sprites/kenney_board-game-icons/Tilesheet/iconsDefault.png" id="10_spjt8"]
+[ext_resource type="Texture2D" uid="uid://2awnwn83fe0k" path="res://Sprites/PNG/Double/Divider/divider-003.png" id="11_3r6h7"]
 [ext_resource type="Script" uid="uid://djmgf6iptuapw" path="res://Scripts/level_manager.gd" id="11_wv7vi"]
-[ext_resource type="Script" uid="uid://d3yumyw0uyeoa" path="res://Scripts/spawn_table.gd" id="12_lrurl"]
+[ext_resource type="Script" uid="uid://d3yumyw0uyeoa" path="res://Scripts/resources/spawn_table.gd" id="12_lrurl"]
+[ext_resource type="Texture2D" uid="uid://blojo6oucj8xf" path="res://Sprites/PNG/Double/Panel/panel-003.png" id="12_okecp"]
 [ext_resource type="Resource" uid="uid://bc81qgq7e7gew" path="res://Resources/SpawnTables/table_lvl_1.tres" id="13_2e2tx"]
+[ext_resource type="Texture2D" uid="uid://b38yvsuqdgua0" path="res://Sprites/PNG/Double/Border/panel-border-003.png" id="13_e34u6"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_wv7vi"]
+flip_faces = true
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_2e2tx"]
+render_priority = 0
+shader = ExtResource("4_lrurl")
+shader_parameter/outline_mode = 1
+shader_parameter/outline_intensity = 0.2470000117325
+shader_parameter/_round = false
+shader_parameter/outline_bias = 0.0
+shader_parameter/outline_color = Color(0, 0, 0, 1)
 
 [sub_resource type="Sky" id="Sky_ggebb"]
 sky_material = ExtResource("1_ggebb")
@@ -21,16 +41,51 @@ sky_material = ExtResource("1_ggebb")
 background_mode = 2
 background_energy_multiplier = 0.5
 sky = SubResource("Sky_ggebb")
-fog_mode = 1
-fog_light_energy = 3.61
-fog_density = 1.0
-fog_aerial_perspective = 0.652
-fog_sky_affect = 0.098
-fog_height_density = 0.003
+ambient_light_color = Color(0.4627451, 0.73333335, 0.050980393, 1)
+fog_light_energy = 0.36
+fog_sun_scatter = 5.35
+fog_density = 0.1231
+fog_depth_curve = 2.928175
 volumetric_fog_density = 0.3543
 adjustment_enabled = true
 adjustment_brightness = 1.35
 adjustment_contrast = 1.09
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_okecp"]
+atlas = ExtResource("11_3r6h7")
+region = Rect2(96, 0, 96, 36)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a1ld2"]
+atlas = ExtResource("10_spjt8")
+region = Rect2(256, 320, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_etx36"]
+atlas = ExtResource("10_spjt8")
+region = Rect2(448, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_spjt8"]
+atlas = ExtResource("10_spjt8")
+region = Rect2(640, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3r6h7"]
+atlas = ExtResource("10_spjt8")
+region = Rect2(704, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w8f8e"]
+atlas = ExtResource("10_spjt8")
+region = Rect2(384, 256, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e34u6"]
+atlas = ExtResource("10_spjt8")
+region = Rect2(1088, 576, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rdu8q"]
+atlas = ExtResource("10_spjt8")
+region = Rect2(384, 320, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_06pod"]
+atlas = ExtResource("10_spjt8")
+region = Rect2(704, 192, 64, 64)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mlo0n"]
 albedo_color = Color(0, 0.633193, 0.634609, 1)
@@ -38,31 +93,38 @@ albedo_color = Color(0, 0.633193, 0.634609, 1)
 [sub_resource type="SphereMesh" id="SphereMesh_ol5s3"]
 material = SubResource("StandardMaterial3D_mlo0n")
 
-[node name="MasterNode" type="Node3D"]
+[node name="MasterNode" type="Node3D" unique_id=72304793]
 
-[node name="LevelManager" type="Node" parent="." node_paths=PackedStringArray("lvl_label")]
+[node name="LevelManager" type="Node" parent="." unique_id=231406740 node_paths=PackedStringArray("lvl_label")]
 script = ExtResource("11_wv7vi")
-level_spawn_tables = Array[ExtResource("12_lrurl")]([ExtResource("13_2e2tx")])
-lvl_label = NodePath("../CanvasLayer/PlayerUI/LevelLabel")
+level_spawn_tables = Array[ExtResource("12_lrurl")]([ExtResource("13_2e2tx"), ExtResource("4_rj06a"), ExtResource("5_etx36")])
+lvl_label = NodePath("../CanvasLayer/PlayerUI/LevelContainer/LevelLabel")
 
-[node name="Camera3D" type="Camera3D" parent="."]
+[node name="Camera3D" type="Camera3D" parent="." unique_id=1350504798]
 transform = Transform3D(0.9999985, 0.0011218778, -0.0013370005, 0, 0.76604414, 0.642788, 0.001745331, -0.64278704, 0.766043, 0, 16.183489, 18.795889)
 doppler_tracking = 1
 current = true
 fov = 27.0
 size = 10.0
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Camera3D" unique_id=795247174]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.9802322e-08, -0.46478194)
+mesh = SubResource("QuadMesh_wv7vi")
+surface_material_override/0 = SubResource("ShaderMaterial_2e2tx")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=181555728]
 transform = Transform3D(1, 0, 0, 0, 0.48944336, 0.8720351, 0, -0.8720351, 0.48944336, 1.72777, 9.545618, 4.9428816)
 light_color = Color(0.9508986, 0.9133705, 0.60843766, 1)
 shadow_enabled = true
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1670395107]
 environment = SubResource("Environment_ctd5p")
+script = ExtResource("8_etx36")
+duration = 12000.0
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1525877418]
 
-[node name="PlayerUI" type="Control" parent="CanvasLayer"]
+[node name="PlayerUI" type="Control" parent="CanvasLayer" unique_id=1801381950]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -72,66 +134,173 @@ grow_vertical = 2
 mouse_filter = 2
 theme = ExtResource("1_j2nek")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/PlayerUI"]
-layout_mode = 0
-offset_left = 32.0
-offset_top = 24.0
-offset_right = 126.0
-offset_bottom = 169.0
+[node name="LevelContainer" type="HBoxContainer" parent="CanvasLayer/PlayerUI" unique_id=785355841]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -143.0
+offset_top = 11.0
+offset_right = 143.0
+offset_bottom = 51.0
+grow_horizontal = 2
+theme_override_constants/separation = 14
 alignment = 1
 
-[node name="HealthUI" type="HBoxContainer" parent="CanvasLayer/PlayerUI/VBoxContainer"]
+[node name="TextureRect3" type="TextureRect" parent="CanvasLayer/PlayerUI/LevelContainer" unique_id=423636008]
 layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = SubResource("AtlasTexture_okecp")
+flip_h = true
 
-[node name="HealthText" type="Label" parent="CanvasLayer/PlayerUI/VBoxContainer/HealthUI"]
+[node name="LevelLabel" type="Label" parent="CanvasLayer/PlayerUI/LevelContainer" unique_id=440600111]
 layout_mode = 2
-text = "HEALTH:"
-
-[node name="TextureRect" type="TextureRect" parent="CanvasLayer/PlayerUI/VBoxContainer/HealthUI"]
-layout_mode = 2
-
-[node name="WeaponUI" type="HBoxContainer" parent="CanvasLayer/PlayerUI/VBoxContainer"]
-layout_mode = 2
-
-[node name="WeaponText" type="Label" parent="CanvasLayer/PlayerUI/VBoxContainer/WeaponUI"]
-layout_mode = 2
-text = "HEALTH:"
-
-[node name="TextureRect" type="TextureRect" parent="CanvasLayer/PlayerUI/VBoxContainer/WeaponUI"]
-layout_mode = 2
-
-[node name="ShieldUI" type="HBoxContainer" parent="CanvasLayer/PlayerUI/VBoxContainer"]
-layout_mode = 2
-
-[node name="ShieldText" type="Label" parent="CanvasLayer/PlayerUI/VBoxContainer/ShieldUI"]
-layout_mode = 2
-text = "HEALTH:"
-
-[node name="TextureRect" type="TextureRect" parent="CanvasLayer/PlayerUI/VBoxContainer/ShieldUI"]
-layout_mode = 2
-
-[node name="GoldUI" type="HBoxContainer" parent="CanvasLayer/PlayerUI/VBoxContainer"]
-layout_mode = 2
-
-[node name="GoldText" type="Label" parent="CanvasLayer/PlayerUI/VBoxContainer/GoldUI"]
-layout_mode = 2
-text = "GOLD: NIL
-"
-
-[node name="TextureRect" type="TextureRect" parent="CanvasLayer/PlayerUI/VBoxContainer/GoldUI"]
-layout_mode = 2
-
-[node name="LevelLabel" type="Label" parent="CanvasLayer/PlayerUI"]
-layout_mode = 0
-offset_left = 472.0
-offset_top = 24.0
-offset_right = 702.0
-offset_bottom = 47.0
 text = "LEVEL"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="GameOverUI" type="Control" parent="CanvasLayer"]
+[node name="TextureRect2" type="TextureRect" parent="CanvasLayer/PlayerUI/LevelContainer" unique_id=22767224]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = SubResource("AtlasTexture_okecp")
+
+[node name="ExperienxeContainer" type="VBoxContainer" parent="CanvasLayer/PlayerUI" unique_id=129371189]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -91.0
+offset_top = -173.0
+offset_right = -23.0
+offset_bottom = 174.0
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_constants/separation = 10
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/PlayerUI/ExperienxeContainer" unique_id=1887425797]
+layout_mode = 2
+texture = SubResource("AtlasTexture_a1ld2")
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="CanvasLayer/PlayerUI/ExperienxeContainer" unique_id=1097813326]
+layout_mode = 2
+size_flags_vertical = 3
+value = 30.0
+fill_mode = 3
+nine_patch_stretch = true
+stretch_margin_left = 24
+stretch_margin_top = 24
+stretch_margin_right = 24
+stretch_margin_bottom = 24
+texture_under = ExtResource("12_okecp")
+texture_over = ExtResource("13_e34u6")
+texture_progress = ExtResource("12_okecp")
+tint_under = Color(0.6, 0.5058824, 0.5058824, 0.42745098)
+tint_progress = Color(0.8666667, 0.33333334, 0.5686275, 1)
+
+[node name="LeftStuff" type="VBoxContainer" parent="CanvasLayer/PlayerUI" unique_id=560660117]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 32.0
+offset_top = -272.0
+offset_right = 165.0
+offset_bottom = 272.0
+grow_vertical = 2
+theme_override_constants/separation = 92
+alignment = 1
+
+[node name="PlayerElements" type="VBoxContainer" parent="CanvasLayer/PlayerUI/LeftStuff" unique_id=2115073313]
+layout_mode = 2
+
+[node name="HealthUI" type="HBoxContainer" parent="CanvasLayer/PlayerUI/LeftStuff/PlayerElements" unique_id=1761205702]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/PlayerUI/LeftStuff/PlayerElements/HealthUI" unique_id=35797243]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+texture = SubResource("AtlasTexture_etx36")
+expand_mode = 3
+
+[node name="HealthText" type="Label" parent="CanvasLayer/PlayerUI/LeftStuff/PlayerElements/HealthUI" unique_id=1050119835]
+layout_mode = 2
+text = "HEALTH:"
+
+[node name="WeaponUI" type="HBoxContainer" parent="CanvasLayer/PlayerUI/LeftStuff/PlayerElements" unique_id=789097406]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/PlayerUI/LeftStuff/PlayerElements/WeaponUI" unique_id=1330858628]
+layout_mode = 2
+texture = SubResource("AtlasTexture_spjt8")
+expand_mode = 3
+
+[node name="WeaponText" type="Label" parent="CanvasLayer/PlayerUI/LeftStuff/PlayerElements/WeaponUI" unique_id=146746003]
+layout_mode = 2
+text = "HEALTH:"
+
+[node name="ShieldUI" type="HBoxContainer" parent="CanvasLayer/PlayerUI/LeftStuff/PlayerElements" unique_id=406266961]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/PlayerUI/LeftStuff/PlayerElements/ShieldUI" unique_id=1444632438]
+layout_mode = 2
+texture = SubResource("AtlasTexture_3r6h7")
+expand_mode = 3
+
+[node name="ShieldText" type="Label" parent="CanvasLayer/PlayerUI/LeftStuff/PlayerElements/ShieldUI" unique_id=358990420]
+layout_mode = 2
+text = "HEALTH:"
+
+[node name="HSeparator" type="HSeparator" parent="CanvasLayer/PlayerUI/LeftStuff/PlayerElements" unique_id=888545517]
+layout_mode = 2
+
+[node name="GoldUI" type="HBoxContainer" parent="CanvasLayer/PlayerUI/LeftStuff/PlayerElements" unique_id=1379710341]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/PlayerUI/LeftStuff/PlayerElements/GoldUI" unique_id=1243996668]
+layout_mode = 2
+texture = SubResource("AtlasTexture_w8f8e")
+expand_mode = 3
+
+[node name="GoldText" type="Label" parent="CanvasLayer/PlayerUI/LeftStuff/PlayerElements/GoldUI" unique_id=221211792]
+layout_mode = 2
+text = "NIL"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AbilityContainer" type="VBoxContainer" parent="CanvasLayer/PlayerUI/LeftStuff" unique_id=352655962]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer/PlayerUI/LeftStuff/AbilityContainer" unique_id=2011169165]
+layout_mode = 2
+
+[node name="TextureButton" type="TextureButton" parent="CanvasLayer/PlayerUI/LeftStuff/AbilityContainer/PanelContainer" unique_id=701916340]
+layout_mode = 2
+texture_normal = SubResource("AtlasTexture_e34u6")
+stretch_mode = 5
+
+[node name="PanelContainer2" type="PanelContainer" parent="CanvasLayer/PlayerUI/LeftStuff/AbilityContainer" unique_id=1824607987]
+layout_mode = 2
+
+[node name="TextureButton2" type="TextureButton" parent="CanvasLayer/PlayerUI/LeftStuff/AbilityContainer/PanelContainer2" unique_id=578756573]
+layout_mode = 2
+texture_normal = SubResource("AtlasTexture_rdu8q")
+
+[node name="PanelContainer3" type="PanelContainer" parent="CanvasLayer/PlayerUI/LeftStuff/AbilityContainer" unique_id=387986545]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureButton" parent="CanvasLayer/PlayerUI/LeftStuff/AbilityContainer/PanelContainer3" unique_id=1674069204]
+layout_mode = 2
+texture_normal = SubResource("AtlasTexture_06pod")
+
+[node name="GameOverUI" type="Control" parent="CanvasLayer" unique_id=885516387]
+visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -141,7 +310,7 @@ grow_vertical = 2
 theme = ExtResource("1_j2nek")
 script = ExtResource("2_j2nek")
 
-[node name="ColorRect" type="ColorRect" parent="CanvasLayer/GameOverUI"]
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer/GameOverUI" unique_id=677467797]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -150,7 +319,7 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 0.7176471)
 
-[node name="Panel" type="Panel" parent="CanvasLayer/GameOverUI"]
+[node name="Panel" type="Panel" parent="CanvasLayer/GameOverUI" unique_id=1709483309]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -164,7 +333,7 @@ offset_bottom = 196.125
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Label" type="Label" parent="CanvasLayer/GameOverUI/Panel"]
+[node name="StateLabel" type="Label" parent="CanvasLayer/GameOverUI/Panel" unique_id=1718822369]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -177,7 +346,7 @@ grow_horizontal = 2
 theme_override_font_sizes/font_size = 46
 text = "YOU LOST"
 
-[node name="ButtonContainer" type="VBoxContainer" parent="CanvasLayer/GameOverUI/Panel"]
+[node name="ButtonContainer" type="VBoxContainer" parent="CanvasLayer/GameOverUI/Panel" unique_id=1699484069]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -193,21 +362,21 @@ grow_vertical = 2
 theme_override_constants/separation = 9
 alignment = 1
 
-[node name="RetryButton" type="Button" parent="CanvasLayer/GameOverUI/Panel/ButtonContainer"]
+[node name="RetryButton" type="Button" parent="CanvasLayer/GameOverUI/Panel/ButtonContainer" unique_id=1610740819]
 layout_mode = 2
 text = "RETRY"
 
-[node name="QuitButton" type="Button" parent="CanvasLayer/GameOverUI/Panel/ButtonContainer"]
+[node name="QuitButton" type="Button" parent="CanvasLayer/GameOverUI/Panel/ButtonContainer" unique_id=690445441]
 layout_mode = 2
 text = "QUIT TO MAIN MENU"
 
-[node name="world" type="Node3D" parent="."]
+[node name="world" type="Node3D" parent="." unique_id=1445352795]
 script = ExtResource("1_y1d41")
 rotation_factor = 0.002
 rotation_max = 2.0
 
-[node name="Grid" type="Node3D" parent="world" node_paths=PackedStringArray("level_manager", "player")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.977105, 0.578187, -5.3218555)
+[node name="Grid" type="Node3D" parent="world" unique_id=219453079 node_paths=PackedStringArray("level_manager", "player")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.977105, 0.578187, -5.3218555)
 script = ExtResource("1_reibu")
 level_manager = NodePath("../../LevelManager")
 player = NodePath("../Player")
@@ -219,16 +388,15 @@ enemy_spawn_percent = 0.7
 enemyResources = [ExtResource("3_lxi88"), ExtResource("4_kh1kx")]
 itemResouces = [ExtResource("5_2ebvk"), ExtResource("6_xii7v")]
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="world/Grid"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6, 0)
+[node name="MeshInstance3D" type="MeshInstance3D" parent="world/Grid" unique_id=2068331569]
 mesh = SubResource("SphereMesh_ol5s3")
 skeleton = NodePath("../../..")
 
-[node name="Player" parent="world" node_paths=PackedStringArray("healthText", "weaponText", "shieldText") instance=ExtResource("2_vy0v6")]
+[node name="Player" parent="world" unique_id=1237040891 node_paths=PackedStringArray("healthText", "weaponText", "shieldText") instance=ExtResource("2_vy0v6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.33347, 0, 0)
-shieldPointsMax = 1
-healthText = NodePath("../../CanvasLayer/PlayerUI/VBoxContainer/HealthUI/HealthText")
-weaponText = NodePath("../../CanvasLayer/PlayerUI/VBoxContainer/WeaponUI/WeaponText")
-shieldText = NodePath("../../CanvasLayer/PlayerUI/VBoxContainer/ShieldUI/ShieldText")
+healthPointsMax = 6
+healthText = NodePath("../../CanvasLayer/PlayerUI/LeftStuff/PlayerElements/HealthUI/HealthText")
+weaponText = NodePath("../../CanvasLayer/PlayerUI/LeftStuff/PlayerElements/WeaponUI/WeaponText")
+shieldText = NodePath("../../CanvasLayer/PlayerUI/LeftStuff/PlayerElements/ShieldUI/ShieldText")
 
 [connection signal="button_down" from="CanvasLayer/GameOverUI/Panel/ButtonContainer/RetryButton" to="CanvasLayer/GameOverUI" method="_retry"]

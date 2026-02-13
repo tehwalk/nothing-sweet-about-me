@@ -1,0 +1,38 @@
+[gd_scene format=3 uid="uid://bvs702k87acpi"]
+
+[ext_resource type="Material" uid="uid://bcep7jp6a1cfr" path="res://Materials/cartoon_boos.tres" id="1_ulgh5"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_2uevj"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_2uevj"]
+bottom_radius = 0.0
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_ulgh5"]
+top_radius = 0.0
+
+[node name="Boos modl" type="Node3D" unique_id=507932464]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=360529182]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+mesh = SubResource("CapsuleMesh_2uevj")
+surface_material_override/0 = ExtResource("1_ulgh5")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="." unique_id=1585278927]
+transform = Transform3D(0.49, 0, 0, 0, -0.036296085, 0.2892033, 0, -0.48865387, -0.021481356, 0, 1.4319887, 0.46756554)
+mesh = SubResource("CapsuleMesh_2uevj")
+surface_material_override/0 = ExtResource("1_ulgh5")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="." unique_id=493616861]
+transform = Transform3D(0.49, 0, 0, 0, 0.20191482, 0.26423398, 0, -0.44646433, 0.1195006, 0, 1.3864655, 0.4882637)
+mesh = SubResource("CapsuleMesh_2uevj")
+surface_material_override/0 = ExtResource("1_ulgh5")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="." unique_id=1125134510]
+transform = Transform3D(-0.20663886, 0.4441297, -0.007229514, -0.4442865, -0.20646006, 0.0054171034, 0.0031492927, 0.014935706, 0.2898593, -0.46090412, 1.768379, -0.06666919)
+mesh = SubResource("CylinderMesh_2uevj")
+surface_material_override/0 = ExtResource("1_ulgh5")
+
+[node name="MeshInstance3D5" type="MeshInstance3D" parent="." unique_id=1868779521]
+transform = Transform3D(0.17733227, 0.45662245, -0.0072295135, -0.4566021, 0.17756921, 0.005417104, 0.012956256, 0.008070272, 0.2898593, 0.50675267, 1.7559032, -0.04230115)
+mesh = SubResource("CylinderMesh_ulgh5")
+surface_material_override/0 = ExtResource("1_ulgh5")
