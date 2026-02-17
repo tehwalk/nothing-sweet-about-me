@@ -5,6 +5,7 @@ class_name Player
 var healthPoints:int = 0
 var weaponPoints:int = 0
 var shieldPoints:int = 0
+var xp_points:int = 0
 @export_category("Player Variables")
 @export var healthPointsMax:int = 3
 @export var shieldPointsMax:int = 1
@@ -20,6 +21,7 @@ var shieldPoints:int = 0
 func _ready():
 	playerVars.connect("hit_enemy", Callable(self,"_handle_damage"))
 	playerVars.connect("item_picked", Callable(self,"pick_item"))
+	playerVars.connect("get_xp", Callable(self,"_get_xp"))
 	_set_player_state()
 	update_ui()
 	#print(str(int(playerVars.PickType.HEALTH)))
@@ -45,41 +47,37 @@ func _handle_rotation(next_pos:Vector3):
 	#look_at(dist)
 	global_rotation.y = atan2(dist.x,dist.z)
 	
-func _handle_damage(dmg:int, is_boss=false):
+func _handle_damage(dmg:int, victory_callable:Callable):
 	var weapon_diff = weaponPoints - dmg
 	#it just affects weapon
 	if weapon_diff>=0:
 		weaponPoints = weapon_diff
-		update_ui()
-		_check_for_boss(is_boss)
+		_handle_victory(victory_callable)
 		return
 	weaponPoints = 0
 	#a subtraction from shield, as weapon_diff is a negative number
 	var shield_diff = shieldPoints + weapon_diff
 	if shield_diff>=0:
 		shieldPoints = shield_diff
-		update_ui()
-		_check_for_boss(is_boss)
+		_handle_victory(victory_callable)
 		return
 	shieldPoints = 0 
 	#a subtraction from health, as shield_diff is a negative number
 	var health_diff = healthPoints + shield_diff
 	if health_diff>0:
 		healthPoints = health_diff
-		update_ui()
-		_check_for_boss(is_boss)
+		_handle_victory(victory_callable)
 		return
-	print("fuck")
+	#print("fuck")
 	playerVars.emit_signal("game_over", false)
 	
-func _handle_victory(is_boss:bool, xp:int = 0):
+func _handle_victory(action:Callable):
 	update_ui()
-	_check_for_boss(is_boss)
+	action.call()
 	
-func _check_for_boss(is_boss:bool):
-	if !is_boss: return
-	print("You won")
-	playerVars.emit_signal("game_over", true)
+func _get_xp(points):
+	xp_points += points
+	print("XP: ", xp_points)
 	
 func pick_item(itemType, itemPoints):
 	#print("Type:" + str(itemType))
@@ -96,7 +94,6 @@ func pick_item(itemType, itemPoints):
 			shieldPoints += itemPoints
 	update_ui()
 	
-			
 func update_ui():
 	healthText.text = str(healthPoints)
 	weaponText.text = str(weaponPoints)

@@ -11,5 +11,6 @@ func _set_enemy():
 	label.text = "Life: " + str(enemyData.hit_points)
 	
 func _on_area_3d_area_shape_entered(area_rid, area, area_shape_index, local_shape_index):
-	playerVars.emit_signal("hit_enemy", enemyData.hit_points)
+	playerVars.emit_signal("hit_enemy", enemyData.hit_points, 
+			func(): playerVars.emit_signal("get_xp", enemyData.xp_points))
 	queue_free()

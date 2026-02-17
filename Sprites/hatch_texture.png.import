@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://bv7gk0quu2sbq"
 path.s3tc="res://.godot/imported/hatch_texture.png-8dfe616713aec13ec86172183cc61ada.s3tc.ctex"
+path.etc2="res://.godot/imported/hatch_texture.png-8dfe616713aec13ec86172183cc61ada.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://Sprites/hatch_texture.png"
-dest_files=["res://.godot/imported/hatch_texture.png-8dfe616713aec13ec86172183cc61ada.s3tc.ctex"]
+dest_files=["res://.godot/imported/hatch_texture.png-8dfe616713aec13ec86172183cc61ada.s3tc.ctex", "res://.godot/imported/hatch_texture.png-8dfe616713aec13ec86172183cc61ada.etc2.ctex"]
 
 [params]
 

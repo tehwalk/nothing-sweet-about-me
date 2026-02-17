@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://cbt0sdbiiugjn"
 path.s3tc="res://.godot/imported/a2_opaque.png-ec33720d0bfd527db1067be9c7aa162a.s3tc.ctex"
+path.etc2="res://.godot/imported/a2_opaque.png-ec33720d0bfd527db1067be9c7aa162a.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://Sprites/a2_opaque.png"
-dest_files=["res://.godot/imported/a2_opaque.png-ec33720d0bfd527db1067be9c7aa162a.s3tc.ctex"]
+dest_files=["res://.godot/imported/a2_opaque.png-ec33720d0bfd527db1067be9c7aa162a.s3tc.ctex", "res://.godot/imported/a2_opaque.png-ec33720d0bfd527db1067be9c7aa162a.etc2.ctex"]
 
 [params]
 
