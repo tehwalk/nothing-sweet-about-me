@@ -8,3 +8,6 @@ signal get_xp(points)
 signal item_picked(type, points)
 signal reached_portal
 signal game_over(won:bool)
+
+signal confirm_quit
+signal cancel_quit

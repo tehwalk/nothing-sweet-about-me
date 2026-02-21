@@ -1,11 +1,41 @@
 [gd_scene format=3 uid="uid://bdcbemdutxr4g"]
 
-[ext_resource type="Script" uid="uid://l1sf8gfvnqqo" path="res://Scripts/PickableBehaviour.gd" id="1_x4jpd"]
+[ext_resource type="Script" uid="uid://l1sf8gfvnqqo" path="res://Scripts/pickables/PickableBehaviour.gd" id="1_x4jpd"]
+[ext_resource type="Theme" uid="uid://cpp1enuwj1cu" path="res://Resources/UIElements/game_theme.tres" id="2_bbg61"]
+[ext_resource type="Texture2D" uid="uid://cc1ynk0y73xr2" path="res://Sprites/kenney_board-game-icons/Tilesheet/iconsDefault.png" id="3_xj5b6"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bbg61"]
+atlas = ExtResource("3_xj5b6")
+region = Rect2(448, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xj5b6"]
+atlas = ExtResource("3_xj5b6")
+region = Rect2(640, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tcr3v"]
+atlas = ExtResource("3_xj5b6")
+region = Rect2(704, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5ubgp"]
+atlas = ExtResource("3_xj5b6")
+region = Rect2(384, 256, 64, 64)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_14etq"]
 
-[node name="Pickable" type="Node3D" unique_id=1115896179]
+[sub_resource type="ViewportTexture" id="ViewportTexture_4xbo3"]
+viewport_path = NodePath("SubViewport")
+
+[node name="Pickable" type="Node3D" unique_id=1115896179 node_paths=PackedStringArray("img_texture", "ui", "life_label")]
 script = ExtResource("1_x4jpd")
+img_dict = Dictionary[int, Texture2D]({
+0: SubResource("AtlasTexture_bbg61"),
+1: SubResource("AtlasTexture_xj5b6"),
+2: SubResource("AtlasTexture_tcr3v"),
+3: SubResource("AtlasTexture_5ubgp")
+})
+img_texture = NodePath("SubViewport/Main/AttrContainer/AttrTexture")
+ui = NodePath("Label3D")
+life_label = NodePath("SubViewport/Main/AttrContainer/AttrText")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=889141555]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.97, 0)
@@ -18,13 +48,61 @@ input_ray_pickable = false
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=1691449066]
 shape = SubResource("BoxShape3D_14etq")
 
-[node name="Label3D" type="Label3D" parent="." unique_id=1495692666]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+[node name="Label3D" type="Sprite3D" parent="." unique_id=2005986213]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0)
 billboard = 1
 render_priority = 1
-outline_render_priority = 0
-text = "YEAH
-"
-font_size = 50
+texture = SubResource("ViewportTexture_4xbo3")
+
+[node name="SubViewport" type="SubViewport" parent="." unique_id=1426011411]
+transparent_bg = true
+
+[node name="Main" type="Control" parent="SubViewport" unique_id=1678621267]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="SubViewport/Main" unique_id=124389229]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -98.0
+offset_top = -53.9375
+offset_right = 98.0
+offset_bottom = 53.9375
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="AttrContainer" type="HBoxContainer" parent="SubViewport/Main" unique_id=1952692280]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -35.0
+offset_top = -24.5
+offset_right = 35.0
+offset_bottom = 24.5
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_bbg61")
+theme_override_constants/separation = 12
+alignment = 1
+
+[node name="AttrTexture" type="TextureRect" parent="SubViewport/Main/AttrContainer" unique_id=728523138]
+layout_mode = 2
+expand_mode = 2
+
+[node name="AttrText" type="Label" parent="SubViewport/Main/AttrContainer" unique_id=1811019421]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "FUK"
 
 [connection signal="area_shape_entered" from="Area3D" to="." method="_on_area_3d_area_shape_entered"]

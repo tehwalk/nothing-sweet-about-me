@@ -1,6 +1,6 @@
-[gd_scene load_steps=8 format=3 uid="uid://1hoiwvgcbxxb"]
+[gd_scene format=3 uid="uid://1hoiwvgcbxxb"]
 
-[ext_resource type="Script" uid="uid://ogb5vq0j66a3" path="res://Scripts/PortalBehaviour.gd" id="1_rbfc8"]
+[ext_resource type="Script" uid="uid://ogb5vq0j66a3" path="res://Scripts/pickables/PortalBehaviour.gd" id="1_rbfc8"]
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_lvd5j"]
 top_radius = 1.0

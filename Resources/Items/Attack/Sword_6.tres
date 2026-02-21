@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="PickableClass" format=3 uid="uid://cv48te1g51rxp"]
+
+[ext_resource type="PackedScene" uid="uid://nvyfhobilq1w" path="res://Scenes/Models/sword_model.tscn" id="1_fag1t"]
+[ext_resource type="Script" uid="uid://ddcxq83tfwp4q" path="res://Scripts/resources/PickableClass.gd" id="2_68bj0"]
+
+[resource]
+script = ExtResource("2_68bj0")
+pickType = 1
+points = 6
+mesh = ExtResource("1_fag1t")

@@ -21,7 +21,7 @@ var xp_points:int = 0
 func _ready():
 	playerVars.connect("hit_enemy", Callable(self,"_handle_damage"))
 	playerVars.connect("item_picked", Callable(self,"pick_item"))
-	playerVars.connect("get_xp", Callable(self,"_get_xp"))
+	
 	_set_player_state()
 	update_ui()
 	#print(str(int(playerVars.PickType.HEALTH)))

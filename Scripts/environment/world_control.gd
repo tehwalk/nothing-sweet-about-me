@@ -1,9 +1,12 @@
 extends Node3D
 class_name WorldControl
 
+@onready var transition:=get_node("/root/SceneTransition")
 @export var rotation_factor:float
 @export var rotation_max:float
 
+func _ready() -> void:
+	transition._transition_show()
 
 func _input(event):
 	if Input.is_action_pressed("right_mouse_click") && event is InputEventMouseMotion:

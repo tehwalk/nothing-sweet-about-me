@@ -6,11 +6,10 @@ class_name Cell
 @onready var playerVars = get_node("/root/PlayerVariables")
 @export var active_material:Material
 @export var inactive_material:Material
+@export var unreached_material:Material
 var can_pass:bool = true
 var cell_index:Vector2
-
-func _ready() -> void:
-	cell_mesh.material_override = active_material
+var cell_child:GridElement
 	
 func _set_cell_index(value:Vector2):
 	cell_index = value
@@ -28,5 +27,19 @@ func _on_area_3d_area_exited(area):
 	cell_mesh.material_override = inactive_material
 
 func _on_area_3d_mouse_entered() -> void:
-	pass
-	#print("Cell ", cell_index)
+	if !cell_child: return
+	cell_child._show_ui()
+
+func _on_area_3d_mouse_exited() -> void:
+	if !cell_child: return
+	cell_child._hide_ui()
+	
+func _on_child_entered_tree(node: Node) -> void:
+	if !node is GridElement: return
+	cell_child = node
+	
+func _highlight():
+	cell_mesh.material_override = active_material
+	
+func _no_highlight():
+	cell_mesh.material_override = unreached_material

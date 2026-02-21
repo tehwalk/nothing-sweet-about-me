@@ -6,6 +6,7 @@
 [ext_resource type="Script" uid="uid://d3yumyw0uyeoa" path="res://Scripts/resources/spawn_table.gd" id="3_evgtt"]
 [ext_resource type="Resource" uid="uid://ckoo80r3urukr" path="res://Resources/Enemies/TestEnemy3.tres" id="3_xonlw"]
 [ext_resource type="Resource" uid="uid://dbtx8bevr7pla" path="res://Resources/Enemies/TestEnemy4.tres" id="4_wj0lr"]
+[ext_resource type="Resource" uid="uid://bmofmi6tkrdor" path="res://Resources/Enemies/TestEnemy5.tres" id="5_0l7vl"]
 [ext_resource type="Resource" uid="uid://bcs7qqe7myqva" path="res://Resources/Items/Attack/Sword_1.tres" id="6_61p1d"]
 [ext_resource type="Resource" uid="uid://ditw6qo8y8ehm" path="res://Resources/Items/Attack/Sword_2.tres" id="7_0l7vl"]
 [ext_resource type="Resource" uid="uid://d3py00j8iag5y" path="res://Resources/Items/Attack/Sword_3.tres" id="8_lqb7l"]
@@ -18,9 +19,10 @@
 [resource]
 script = ExtResource("3_evgtt")
 enemy_table = Dictionary[ExtResource("1_klqq1"), int]({
-ExtResource("2_u8pxr"): 0,
-ExtResource("3_xonlw"): 0,
-ExtResource("4_wj0lr"): 0
+ExtResource("2_u8pxr"): 30,
+ExtResource("3_xonlw"): 45,
+ExtResource("4_wj0lr"): 20,
+ExtResource("5_0l7vl"): 5
 })
 pickable_table = Dictionary[ExtResource("2_1y7au"), int]({
 ExtResource("6_61p1d"): 10,
@@ -32,5 +34,4 @@ ExtResource("11_j1sdx"): 10,
 ExtResource("12_rt3ng"): 10,
 ExtResource("13_xjdh3"): 5
 })
-spawn_boss = true
 metadata/_custom_type_script = "uid://d3yumyw0uyeoa"

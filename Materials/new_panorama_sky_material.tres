@@ -1,8 +1,8 @@
 [gd_resource type="PanoramaSkyMaterial" format=3 uid="uid://7oy746vt8jfv"]
 
 [sub_resource type="Gradient" id="Gradient_8l4d2"]
-offsets = PackedFloat32Array(0, 0.51625, 1)
-colors = PackedColorArray(0.483316, 0.053242482, 0.64633083, 1, 0.7294118, 0.39215687, 0.3254902, 1, 0.5764706, 1, 0.4627451, 1)
+offsets = PackedFloat32Array(0, 0.5251323, 1)
+colors = PackedColorArray(0.7294118, 0.39215687, 0.3254902, 1, 0.483316, 0.053242482, 0.64633083, 1, 0.5764706, 1, 0.4627451, 1)
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_khluh"]
 noise_type = 2
@@ -19,7 +19,7 @@ height = 1024
 noise = SubResource("FastNoiseLite_khluh")
 color_ramp = SubResource("Gradient_8l4d2")
 seamless = true
-seamless_blend_skirt = 0.58
+seamless_blend_skirt = 1.0
 
 [resource]
 panorama = SubResource("NoiseTexture2D_vi242")

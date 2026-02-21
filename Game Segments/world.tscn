@@ -2,28 +2,28 @@
 
 [ext_resource type="Material" uid="uid://7oy746vt8jfv" path="res://Materials/new_panorama_sky_material.tres" id="1_ggebb"]
 [ext_resource type="Theme" uid="uid://cpp1enuwj1cu" path="res://Resources/UIElements/game_theme.tres" id="1_j2nek"]
-[ext_resource type="Script" uid="uid://nf0gd3x3ovcu" path="res://Scripts/grid_creation.gd" id="1_reibu"]
-[ext_resource type="Script" uid="uid://bapvsykjtbuxn" path="res://Scripts/world_control.gd" id="1_y1d41"]
-[ext_resource type="Script" uid="uid://bpph5fevy6ou8" path="res://Scripts/game_over_screen.gd" id="2_j2nek"]
+[ext_resource type="Script" uid="uid://nf0gd3x3ovcu" path="res://Scripts/environment/grid_creation.gd" id="1_reibu"]
+[ext_resource type="Script" uid="uid://bapvsykjtbuxn" path="res://Scripts/environment/world_control.gd" id="1_y1d41"]
+[ext_resource type="Script" uid="uid://bpph5fevy6ou8" path="res://Scripts/ui/game_over_screen.gd" id="2_j2nek"]
 [ext_resource type="PackedScene" uid="uid://bfl33oxe24dcs" path="res://Scenes/Player.tscn" id="2_vy0v6"]
-[ext_resource type="Resource" uid="uid://cxeupcfl6348v" path="res://Resources/Enemies/TestEnemy2.tres" id="3_lxi88"]
-[ext_resource type="Resource" uid="uid://xtyhf0od1502" path="res://Resources/Enemies/TestEnemy.tres" id="4_kh1kx"]
 [ext_resource type="Shader" uid="uid://c34lxhrp4r8f7" path="res://Shaders/outline_shader_v2.gdshader" id="4_lrurl"]
 [ext_resource type="Resource" uid="uid://dbrppkqv37vi0" path="res://Resources/SpawnTables/table_lvl_2.tres" id="4_rj06a"]
-[ext_resource type="Resource" uid="uid://cc8hnhpm3ia0f" path="res://Resources/Items/Defense/Shield_1.tres" id="5_2ebvk"]
 [ext_resource type="Resource" uid="uid://cd1npo2iorxwf" path="res://Resources/SpawnTables/table_lvl_3.tres" id="5_etx36"]
-[ext_resource type="Resource" uid="uid://bcs7qqe7myqva" path="res://Resources/Items/Attack/Sword_1.tres" id="6_xii7v"]
-[ext_resource type="Script" uid="uid://qbsfshs4rxbi" path="res://Scripts/sky_animation.gd" id="8_etx36"]
+[ext_resource type="Script" uid="uid://qbsfshs4rxbi" path="res://Scripts/environment/sky_animation.gd" id="8_etx36"]
 [ext_resource type="Texture2D" uid="uid://cc1ynk0y73xr2" path="res://Sprites/kenney_board-game-icons/Tilesheet/iconsDefault.png" id="10_spjt8"]
 [ext_resource type="Texture2D" uid="uid://2awnwn83fe0k" path="res://Sprites/PNG/Double/Divider/divider-003.png" id="11_3r6h7"]
-[ext_resource type="Script" uid="uid://djmgf6iptuapw" path="res://Scripts/level_manager.gd" id="11_wv7vi"]
+[ext_resource type="Script" uid="uid://djmgf6iptuapw" path="res://Scripts/environment/level_manager.gd" id="11_wv7vi"]
 [ext_resource type="Script" uid="uid://d3yumyw0uyeoa" path="res://Scripts/resources/spawn_table.gd" id="12_lrurl"]
 [ext_resource type="Texture2D" uid="uid://blojo6oucj8xf" path="res://Sprites/PNG/Double/Panel/panel-003.png" id="12_okecp"]
 [ext_resource type="Resource" uid="uid://bc81qgq7e7gew" path="res://Resources/SpawnTables/table_lvl_1.tres" id="13_2e2tx"]
 [ext_resource type="Texture2D" uid="uid://b38yvsuqdgua0" path="res://Sprites/PNG/Double/Border/panel-border-003.png" id="13_e34u6"]
+[ext_resource type="Script" uid="uid://dgsoftp5o6tug" path="res://Scripts/ui/pause_ui.gd" id="14_3r6h7"]
+[ext_resource type="Script" uid="uid://og8503g1d34a" path="res://Scripts/ui/effect_control.gd" id="14_w8f8e"]
+[ext_resource type="Material" uid="uid://cedgt8u3dulsr" path="res://Materials/transparent.tres" id="17_spjt8"]
 
 [sub_resource type="QuadMesh" id="QuadMesh_wv7vi"]
 flip_faces = true
+size = Vector2(5, 5)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_2e2tx"]
 render_priority = 0
@@ -87,6 +87,10 @@ region = Rect2(384, 320, 64, 64)
 atlas = ExtResource("10_spjt8")
 region = Rect2(704, 192, 64, 64)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_yq13b"]
+atlas = ExtResource("10_spjt8")
+region = Rect2(1024, 0, 64, 64)
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mlo0n"]
 albedo_color = Color(0, 0.633193, 0.634609, 1)
 
@@ -101,7 +105,7 @@ level_spawn_tables = Array[ExtResource("12_lrurl")]([ExtResource("13_2e2tx"), Ex
 lvl_label = NodePath("../CanvasLayer/PlayerUI/LevelContainer/LevelLabel")
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=1350504798]
-transform = Transform3D(0.9999985, 0.0011218778, -0.0013370005, 0, 0.76604414, 0.642788, 0.001745331, -0.64278704, 0.766043, 0, 16.183489, 18.795889)
+transform = Transform3D(0.9999985, 0.0013690717, -0.0010825077, -2.910383e-11, 0.62023056, 0.78441954, 0.0017453309, -0.7844184, 0.6202297, 0.005178279, 19.94047, 15.828959)
 doppler_tracking = 1
 current = true
 fov = 27.0
@@ -115,6 +119,7 @@ surface_material_override/0 = SubResource("ShaderMaterial_2e2tx")
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=181555728]
 transform = Transform3D(1, 0, 0, 0, 0.48944336, 0.8720351, 0, -0.8720351, 0.48944336, 1.72777, 9.545618, 4.9428816)
 light_color = Color(0.9508986, 0.9133705, 0.60843766, 1)
+light_specular = 0.0
 shadow_enabled = true
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1670395107]
@@ -184,6 +189,12 @@ theme_override_constants/separation = 10
 [node name="TextureRect" type="TextureRect" parent="CanvasLayer/PlayerUI/ExperienxeContainer" unique_id=1887425797]
 layout_mode = 2
 texture = SubResource("AtlasTexture_a1ld2")
+
+[node name="ExpLabel" type="Label" parent="CanvasLayer/PlayerUI/ExperienxeContainer" unique_id=872575141]
+layout_mode = 2
+theme_override_font_sizes/font_size = 35
+text = "1"
+horizontal_alignment = 1
 
 [node name="TextureProgressBar" type="TextureProgressBar" parent="CanvasLayer/PlayerUI/ExperienxeContainer" unique_id=1097813326]
 layout_mode = 2
@@ -299,6 +310,162 @@ layout_mode = 2
 layout_mode = 2
 texture_normal = SubResource("AtlasTexture_06pod")
 
+[node name="PauseButton" type="TextureButton" parent="CanvasLayer/PlayerUI" unique_id=823801362]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -90.0
+offset_top = 40.0
+offset_right = -26.0
+offset_bottom = 104.0
+grow_horizontal = 0
+texture_normal = SubResource("AtlasTexture_yq13b")
+script = ExtResource("14_w8f8e")
+
+[node name="PauseUI" type="Control" parent="CanvasLayer" unique_id=2089829944 node_paths=PackedStringArray("main_panel", "confirm_quit_panel")]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_j2nek")
+script = ExtResource("14_3r6h7")
+main_panel = NodePath("MainPanel")
+confirm_quit_panel = NodePath("ConfirmationPanel")
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer/PauseUI" unique_id=84529549]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.79607844)
+
+[node name="MainPanel" type="Panel" parent="CanvasLayer/PauseUI" unique_id=1722158060]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -323.5
+offset_top = -199.0
+offset_right = 323.5
+offset_bottom = 199.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/PauseUI/MainPanel" unique_id=984277880]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -44.0
+offset_top = 35.0
+offset_right = 44.0
+offset_bottom = 67.0
+grow_horizontal = 2
+text = "PAUSED"
+
+[node name="ButtonsContainer" type="VBoxContainer" parent="CanvasLayer/PauseUI/MainPanel" unique_id=61791695]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -68.5
+offset_top = -89.0
+offset_right = 68.5
+offset_bottom = 152.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="ResumeButton" type="Button" parent="CanvasLayer/PauseUI/MainPanel/ButtonsContainer" unique_id=782768437]
+layout_mode = 2
+size_flags_vertical = 4
+text = "RESUME"
+script = ExtResource("14_w8f8e")
+
+[node name="SettingsButton" type="Button" parent="CanvasLayer/PauseUI/MainPanel/ButtonsContainer" unique_id=800761398]
+layout_mode = 2
+size_flags_vertical = 4
+text = "SETTINGS"
+script = ExtResource("14_w8f8e")
+
+[node name="GrimoireButton" type="Button" parent="CanvasLayer/PauseUI/MainPanel/ButtonsContainer" unique_id=540950353]
+layout_mode = 2
+size_flags_vertical = 4
+text = "GRIMOIRE"
+script = ExtResource("14_w8f8e")
+
+[node name="QuitButton" type="Button" parent="CanvasLayer/PauseUI/MainPanel/ButtonsContainer" unique_id=186273967]
+layout_mode = 2
+size_flags_vertical = 4
+text = "QUIT"
+script = ExtResource("14_w8f8e")
+
+[node name="ConfirmationPanel" type="Panel" parent="CanvasLayer/PauseUI" unique_id=1033045116]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -194.25
+offset_top = -111.0
+offset_right = 194.25
+offset_bottom = 111.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/PauseUI/ConfirmationPanel" unique_id=743972151]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_top = 44.0
+offset_right = 20.0
+offset_bottom = 76.0
+grow_horizontal = 2
+text = "Are you sure you want to quit?
+(Your progress will be saved.)"
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/PauseUI/ConfirmationPanel" unique_id=1098762515]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -79.0
+offset_top = -92.0
+offset_right = 79.0
+offset_bottom = -19.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/separation = 66
+alignment = 1
+
+[node name="ConfirmButton" type="Button" parent="CanvasLayer/PauseUI/ConfirmationPanel/HBoxContainer" unique_id=784734375]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "YES"
+script = ExtResource("14_w8f8e")
+
+[node name="CancelButton" type="Button" parent="CanvasLayer/PauseUI/ConfirmationPanel/HBoxContainer" unique_id=378031279]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "NO"
+script = ExtResource("14_w8f8e")
+
 [node name="GameOverUI" type="Control" parent="CanvasLayer" unique_id=885516387]
 visible = false
 layout_mode = 3
@@ -365,10 +532,12 @@ alignment = 1
 [node name="RetryButton" type="Button" parent="CanvasLayer/GameOverUI/Panel/ButtonContainer" unique_id=1610740819]
 layout_mode = 2
 text = "RETRY"
+script = ExtResource("14_w8f8e")
 
 [node name="QuitButton" type="Button" parent="CanvasLayer/GameOverUI/Panel/ButtonContainer" unique_id=690445441]
 layout_mode = 2
 text = "QUIT TO MAIN MENU"
+script = ExtResource("14_w8f8e")
 
 [node name="world" type="Node3D" parent="." unique_id=1445352795]
 script = ExtResource("1_y1d41")
@@ -376,21 +545,18 @@ rotation_factor = 0.002
 rotation_max = 2.0
 
 [node name="Grid" type="Node3D" parent="world" unique_id=219453079 node_paths=PackedStringArray("level_manager", "player")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.977105, 0.578187, -5.3218555)
 script = ExtResource("1_reibu")
 level_manager = NodePath("../../LevelManager")
 player = NodePath("../Player")
-width = 5
-height = 5
-size = 2
-offset = 0.1
+width = 6
+height = 6
+size = 1.5
 enemy_spawn_percent = 0.7
-enemyResources = [ExtResource("3_lxi88"), ExtResource("4_kh1kx")]
-itemResouces = [ExtResource("5_2ebvk"), ExtResource("6_xii7v")]
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="world/Grid" unique_id=2068331569]
+[node name="GridCenter" type="MeshInstance3D" parent="world/Grid" unique_id=2068331569]
 mesh = SubResource("SphereMesh_ol5s3")
 skeleton = NodePath("../../..")
+surface_material_override/0 = ExtResource("17_spjt8")
 
 [node name="Player" parent="world" unique_id=1237040891 node_paths=PackedStringArray("healthText", "weaponText", "shieldText") instance=ExtResource("2_vy0v6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.33347, 0, 0)
@@ -399,4 +565,18 @@ healthText = NodePath("../../CanvasLayer/PlayerUI/LeftStuff/PlayerElements/Healt
 weaponText = NodePath("../../CanvasLayer/PlayerUI/LeftStuff/PlayerElements/WeaponUI/WeaponText")
 shieldText = NodePath("../../CanvasLayer/PlayerUI/LeftStuff/PlayerElements/ShieldUI/ShieldText")
 
+[node name="XPManager" parent="world/Player" index="2" unique_id=161474855 node_paths=PackedStringArray("xp_label", "xp_bar")]
+xp_caps = Array[int]([20, 40, 60, 80, 100, 120, 140, 160])
+xp_label = NodePath("../../../CanvasLayer/PlayerUI/ExperienxeContainer/ExpLabel")
+xp_bar = NodePath("../../../CanvasLayer/PlayerUI/ExperienxeContainer/TextureProgressBar")
+
+[connection signal="button_down" from="CanvasLayer/PlayerUI/PauseButton" to="CanvasLayer/PauseUI" method="_pause"]
+[connection signal="button_down" from="CanvasLayer/PauseUI/MainPanel/ButtonsContainer/ResumeButton" to="CanvasLayer/PauseUI" method="_unpause"]
+[connection signal="button_down" from="CanvasLayer/PauseUI/MainPanel/ButtonsContainer/QuitButton" to="CanvasLayer/PauseUI" method="_quit_to_main_menu"]
+[connection signal="button_down" from="CanvasLayer/PauseUI/ConfirmationPanel/HBoxContainer/ConfirmButton" to="CanvasLayer/PauseUI" method="_confirm_quit"]
+[connection signal="button_down" from="CanvasLayer/PauseUI/ConfirmationPanel/HBoxContainer/CancelButton" to="CanvasLayer/PauseUI" method="_cancel_quit"]
 [connection signal="button_down" from="CanvasLayer/GameOverUI/Panel/ButtonContainer/RetryButton" to="CanvasLayer/GameOverUI" method="_retry"]
+[connection signal="button_down" from="CanvasLayer/GameOverUI/Panel/ButtonContainer/QuitButton" to="CanvasLayer/GameOverUI" method="_go_to_main_menu"]
+
+[editable path="world/Player"]
+[editable path="world/Player/piece_base"]

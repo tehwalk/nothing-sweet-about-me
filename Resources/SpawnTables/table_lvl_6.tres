@@ -1,0 +1,36 @@
+[gd_resource type="Resource" script_class="SpawnTable" format=3 uid="uid://de3udvbm4og6a"]
+
+[ext_resource type="Script" uid="uid://cgx8x7jvgqkqn" path="res://Scripts/resources/EnemyClass.gd" id="1_xfa7n"]
+[ext_resource type="Resource" uid="uid://cxeupcfl6348v" path="res://Resources/Enemies/TestEnemy2.tres" id="2_0bkjb"]
+[ext_resource type="Resource" uid="uid://ckoo80r3urukr" path="res://Resources/Enemies/TestEnemy3.tres" id="3_75whc"]
+[ext_resource type="Resource" uid="uid://dbtx8bevr7pla" path="res://Resources/Enemies/TestEnemy4.tres" id="4_wrhqb"]
+[ext_resource type="Script" uid="uid://ddcxq83tfwp4q" path="res://Scripts/resources/PickableClass.gd" id="5_odsbd"]
+[ext_resource type="Resource" uid="uid://bcs7qqe7myqva" path="res://Resources/Items/Attack/Sword_1.tres" id="6_6tvil"]
+[ext_resource type="Resource" uid="uid://ditw6qo8y8ehm" path="res://Resources/Items/Attack/Sword_2.tres" id="7_l2qy4"]
+[ext_resource type="Resource" uid="uid://d3py00j8iag5y" path="res://Resources/Items/Attack/Sword_3.tres" id="8_l34nt"]
+[ext_resource type="Resource" uid="uid://cc8hnhpm3ia0f" path="res://Resources/Items/Defense/Shield_1.tres" id="9_ha62b"]
+[ext_resource type="Resource" uid="uid://cjhm3274owqgy" path="res://Resources/Items/Defense/Shield_2.tres" id="10_fly4q"]
+[ext_resource type="Resource" uid="uid://c7vnatbswrrcd" path="res://Resources/Items/Defense/Shield_3.tres" id="11_4iqlx"]
+[ext_resource type="Resource" uid="uid://dctfqet35kkh0" path="res://Resources/Items/Health/Health_1.tres" id="12_b7lv6"]
+[ext_resource type="Resource" uid="uid://borqpn5yo70mj" path="res://Resources/Items/Health/Health_2.tres" id="13_q2j7a"]
+[ext_resource type="Script" uid="uid://d3yumyw0uyeoa" path="res://Scripts/resources/spawn_table.gd" id="14_fyq08"]
+
+[resource]
+script = ExtResource("14_fyq08")
+enemy_table = Dictionary[ExtResource("1_xfa7n"), int]({
+ExtResource("2_0bkjb"): 0,
+ExtResource("3_75whc"): 0,
+ExtResource("4_wrhqb"): 0
+})
+pickable_table = Dictionary[ExtResource("5_odsbd"), int]({
+ExtResource("6_6tvil"): 10,
+ExtResource("7_l2qy4"): 25,
+ExtResource("8_l34nt"): 10,
+ExtResource("9_ha62b"): 10,
+ExtResource("10_fly4q"): 20,
+ExtResource("11_4iqlx"): 10,
+ExtResource("12_b7lv6"): 10,
+ExtResource("13_q2j7a"): 5
+})
+spawn_boss = true
+metadata/_custom_type_script = "uid://d3yumyw0uyeoa"

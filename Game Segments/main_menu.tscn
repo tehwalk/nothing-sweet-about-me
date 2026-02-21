@@ -1,8 +1,26 @@
-[gd_scene load_steps=2 format=3 uid="uid://dk4gjxqrcqml2"]
+[gd_scene format=3 uid="uid://dk4gjxqrcqml2"]
 
 [ext_resource type="Theme" uid="uid://cpp1enuwj1cu" path="res://Resources/UIElements/game_theme.tres" id="1_quc1q"]
+[ext_resource type="Script" uid="uid://6y5k4r45kd5h" path="res://Scripts/ui/main_menu.gd" id="2_6d403"]
+[ext_resource type="Script" uid="uid://og8503g1d34a" path="res://Scripts/ui/effect_control.gd" id="3_7enge"]
 
-[node name="MainMenu" type="Control"]
+[sub_resource type="Gradient" id="Gradient_quc1q"]
+offsets = PackedFloat32Array(0, 0.8738938, 1)
+colors = PackedColorArray(0.08166657, 0.00010225979, 0.16645157, 1, 0.6026315, 0.25538775, 0.6602329, 1, 1, 1, 1, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_6d403"]
+noise_type = 4
+frequency = 0.0191
+fractal_type = 2
+fractal_octaves = 4
+fractal_weighted_strength = 1.0
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_7enge"]
+width = 1024
+noise = SubResource("FastNoiseLite_6d403")
+color_ramp = SubResource("Gradient_quc1q")
+
+[node name="MainMenu" type="Control" unique_id=1141784829]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -10,45 +28,62 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_quc1q")
+script = ExtResource("2_6d403")
 
-[node name="Label" type="Label" parent="."]
+[node name="ColorRect" type="TextureRect" parent="." unique_id=2146389175]
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -56.0
-offset_top = -196.0
-offset_right = 71.0
-offset_bottom = -173.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "CRYPT CRAWLER"
+texture = SubResource("NoiseTexture2D_7enge")
 
-[node name="Buttons" type="VBoxContainer" parent="."]
+[node name="TitleLabel" type="Label" parent="." unique_id=873839751]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -20.0
-offset_right = 20.0
-offset_bottom = 20.0
+offset_left = -97.5
+offset_top = -197.0
+offset_right = 112.5
+offset_bottom = -172.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_type_variation = &"TitleLabel"
+text = "EONS 
+     WHETTING"
+
+[node name="Buttons" type="VBoxContainer" parent="." unique_id=256473778]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -65.0
+offset_top = -40.0
+offset_right = 65.0
+offset_bottom = 187.0
 grow_horizontal = 2
 grow_vertical = 2
 alignment = 1
 
-[node name="PlayButton" type="Button" parent="Buttons"]
+[node name="PlayButton" type="Button" parent="Buttons" unique_id=2048955890]
 layout_mode = 2
 text = "PLAY"
+script = ExtResource("3_7enge")
 
-[node name="SettingsButton" type="Button" parent="Buttons"]
+[node name="SettingsButton" type="Button" parent="Buttons" unique_id=690870281]
 layout_mode = 2
 text = "SETTINGS"
+script = ExtResource("3_7enge")
 
-[node name="CreditsButton" type="Button" parent="Buttons"]
+[node name="CreditsButton" type="Button" parent="Buttons" unique_id=1728409657]
 layout_mode = 2
 text = "CREDITS"
+script = ExtResource("3_7enge")
+
+[connection signal="button_down" from="Buttons/PlayButton" to="." method="_play_game"]

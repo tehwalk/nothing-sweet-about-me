@@ -1,0 +1,30 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://ncqralc27pfd"]
+
+[ext_resource type="Shader" uid="uid://cjr4g77pi11nh" path="res://Shaders/fire_animated_outline.gdshader" id="1_4jswj"]
+
+[sub_resource type="Gradient" id="Gradient_dldm7"]
+interpolation_mode = 2
+offsets = PackedFloat32Array(0, 0.58191127, 1)
+colors = PackedColorArray(0.6540447, 0.67304194, 0.52972615, 1, 0.83882266, 0.313564, 0.7809038, 1, 1, 0, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_aq782"]
+gradient = SubResource("Gradient_dldm7")
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_660dm"]
+noise_type = 5
+frequency = 0.0331
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_w1h7j"]
+noise = SubResource("FastNoiseLite_660dm")
+seamless = true
+seamless_blend_skirt = 0.388
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_4jswj")
+shader_parameter/outline_thickness = 0.05
+shader_parameter/speed = 0.05
+shader_parameter/noise_scale = 4.06
+shader_parameter/alpha = 1.055
+shader_parameter/fire_noise = SubResource("NoiseTexture2D_w1h7j")
+shader_parameter/color_ramp = SubResource("GradientTexture1D_aq782")

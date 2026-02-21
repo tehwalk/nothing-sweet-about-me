@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://cwqdlnrskwmwp"]
+
+[ext_resource type="Material" uid="uid://b6mxearmr4ew4" path="res://Materials/transition_canvas_material.tres" id="1_w4kej"]
+[ext_resource type="Script" uid="uid://b833m8bahvt3a" path="res://Scripts/ui/transition_manager.gd" id="2_lxr7h"]
+
+[node name="SceneTransition" type="ColorRect" unique_id=1339214944]
+z_index = 2
+material = ExtResource("1_w4kej")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("2_lxr7h")

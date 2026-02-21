@@ -1,8 +1,9 @@
 [gd_scene format=3 uid="uid://bfl33oxe24dcs"]
 
-[ext_resource type="Script" uid="uid://ch6i1k5i28vu5" path="res://Scripts/PlayerMovement.gd" id="1_qlg84"]
+[ext_resource type="Script" uid="uid://ch6i1k5i28vu5" path="res://Scripts/player/PlayerMovement.gd" id="1_qlg84"]
 [ext_resource type="PackedScene" uid="uid://dlr01cwt5k1kg" path="res://Meshes/piece_base.blend" id="2_kyqiw"]
 [ext_resource type="Material" uid="uid://dqgr2g0wtv8p7" path="res://Materials/cartoon_player.tres" id="3_gntrk"]
+[ext_resource type="Script" uid="uid://7mniqtghu8cp" path="res://Scripts/player/xp_manager.gd" id="4_dewec"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_db810"]
 
@@ -27,5 +28,8 @@ collision_mask = 6
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=128575033]
 shape = SubResource("CapsuleShape3D_db810")
+
+[node name="XPManager" type="Node" parent="." unique_id=161474855]
+script = ExtResource("4_dewec")
 
 [editable path="piece_base"]

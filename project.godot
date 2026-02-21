@@ -15,12 +15,14 @@ compatibility/default_parent_skeleton_in_mesh_instance_3d=true
 [application]
 
 config/name="nothing_sweet"
+run/main_scene="uid://dk4gjxqrcqml2"
 config/features=PackedStringArray("4.6", "GL Compatibility")
 config/icon="res://icon.svg"
 
 [autoload]
 
-PlayerVariables="*res://Scripts/player_variables.gd"
+PlayerVariables="*res://Scripts/misc/player_variables.gd"
+SceneTransition="*uid://cwqdlnrskwmwp"
 
 [display]
 

@@ -1,0 +1,27 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://b6mxearmr4ew4"]
+
+[ext_resource type="Shader" uid="uid://dwbehli4fynhh" path="res://Shaders/transition_pattern.gdshader" id="1_blllc"]
+[ext_resource type="Texture2D" uid="uid://bfqrgm1rgbk66" path="res://icon.svg" id="2_bpm0x"]
+
+[sub_resource type="Gradient" id="Gradient_1vd1h"]
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_1e0ss"]
+gradient = SubResource("Gradient_1vd1h")
+fill = 1
+fill_from = Vector2(0.49786323, 0.49358973)
+
+[resource]
+shader = ExtResource("1_blllc")
+shader_parameter/base_color = Color(0, 0, 0, 1)
+shader_parameter/node_resolution = Vector2(100, 100)
+shader_parameter/factor = 0.0
+shader_parameter/width = 1.525
+shader_parameter/gradient_texture = SubResource("GradientTexture2D_1e0ss")
+shader_parameter/gradient_fixed = false
+shader_parameter/shape_texture = ExtResource("2_bpm0x")
+shader_parameter/shape_tiling = 32.0
+shader_parameter/shape_rotation = 45.0
+shader_parameter/shape_scroll = Vector2(0, 0)
+shader_parameter/shape_feathering = 0.1499999966472
+shader_parameter/shape_treshold = 0.86999998055376

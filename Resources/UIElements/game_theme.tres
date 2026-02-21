@@ -1,10 +1,16 @@
 [gd_resource type="Theme" format=3 uid="uid://cpp1enuwj1cu"]
 
 [ext_resource type="FontFile" uid="uid://ccv6wbl2x0nhv" path="res://Fonts/AlmendraSC-Regular.ttf" id="1_essnn"]
-[ext_resource type="StyleBox" uid="uid://bcqi6l4tojd2b" path="res://Resources/UIElements/button_normal_texture.tres" id="2_cw16i"]
 [ext_resource type="StyleBox" uid="uid://ccphbqq3g2a1o" path="res://Resources/UIElements/button_hover_texture.tres" id="2_l0vl4"]
 [ext_resource type="StyleBox" uid="uid://bmanidvdx3ikv" path="res://Resources/UIElements/panel_texture.tres" id="2_t5usc"]
 [ext_resource type="Texture2D" uid="uid://ix8nrwxcp5il" path="res://Sprites/PNG/Double/Border/panel-border-005.png" id="5_0yf0e"]
+[ext_resource type="FontFile" uid="uid://cmsblvaf0lyt4" path="res://Fonts/Rotunda.ttf" id="6_kxnlp"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0yf0e"]
+content_margin_left = 10.0
+content_margin_top = 10.0
+content_margin_right = 10.0
+content_margin_bottom = 10.0
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_kxnlp"]
 texture = ExtResource("5_0yf0e")
@@ -17,9 +23,18 @@ texture_margin_bottom = 12.0
 Button/font_sizes/font_size = 20
 Button/fonts/font = ExtResource("1_essnn")
 Button/styles/hover = ExtResource("2_l0vl4")
-Button/styles/normal = ExtResource("2_cw16i")
+Button/styles/normal = SubResource("StyleBoxEmpty_0yf0e")
 Button/styles/pressed = ExtResource("2_l0vl4")
 Label/font_sizes/font_size = 26
 Label/fonts/font = ExtResource("1_essnn")
 Panel/styles/panel = ExtResource("2_t5usc")
 PanelContainer/styles/panel = SubResource("StyleBoxTexture_kxnlp")
+TitleLabel/base_type = &"Label"
+TitleLabel/colors/font_color = Color(0.8791142, 0.8575107, 1, 1)
+TitleLabel/colors/font_shadow_color = Color(0, 0, 0, 1)
+TitleLabel/constants/line_spacing = 2
+TitleLabel/constants/outline_size = 9
+TitleLabel/constants/shadow_offset_x = 4
+TitleLabel/constants/shadow_offset_y = 4
+TitleLabel/font_sizes/font_size = 58
+TitleLabel/fonts/font = ExtResource("6_kxnlp")

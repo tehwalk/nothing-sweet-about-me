@@ -1,0 +1,40 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://b6mbfafuhuj3e"]
+
+[ext_resource type="Shader" uid="uid://ejwdm32v40km" path="res://addons/flexible_toon_shader/hatch_toon.gdshader" id="1_xionn"]
+[ext_resource type="Texture2D" uid="uid://cbt0sdbiiugjn" path="res://Sprites/a2_opaque.png" id="2_pwfu3"]
+
+[sub_resource type="Gradient" id="Gradient_78yo8"]
+interpolation_mode = 2
+offsets = PackedFloat32Array(0, 0.35232067, 1)
+colors = PackedColorArray(0.4164858, 0.33279693, 0.11663937, 1, 0.49013186, 0.70297045, 0.51339597, 1, 1, 1, 1, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_ouh6e"]
+noise_type = 3
+seed = 4
+frequency = 0.0387
+fractal_type = 3
+fractal_lacunarity = 0.84
+fractal_gain = 0.65
+fractal_weighted_strength = 0.68
+fractal_ping_pong_strength = 1.76
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_epwy7"]
+noise = SubResource("FastNoiseLite_ouh6e")
+color_ramp = SubResource("Gradient_78yo8")
+seamless = true
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_xionn")
+shader_parameter/albedo = Color(0.67068946, 0.6706895, 0.6706893, 1)
+shader_parameter/albedo_texture = SubResource("NoiseTexture2D_epwy7")
+shader_parameter/cuts = 5
+shader_parameter/wrap = -0.04499990713750002
+shader_parameter/steepness = 1.3350000159125
+shader_parameter/use_attenuation = true
+shader_parameter/use_rim = false
+shader_parameter/rim_width = 8.0
+shader_parameter/rim_color = Color(1, 1, 1, 1)
+shader_parameter/hatch_scale = 2.0
+shader_parameter/use_triplanar = true
+shader_parameter/hatch_texture = ExtResource("2_pwfu3")

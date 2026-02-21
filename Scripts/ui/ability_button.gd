@@ -1,0 +1,2 @@
+extends BaseButton
+class_name AbilityPanel
