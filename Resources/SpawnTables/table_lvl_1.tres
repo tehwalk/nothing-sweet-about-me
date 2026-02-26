@@ -2,9 +2,11 @@
 
 [ext_resource type="Script" uid="uid://cgx8x7jvgqkqn" path="res://Scripts/resources/EnemyClass.gd" id="1_d7nrn"]
 [ext_resource type="Script" uid="uid://ddcxq83tfwp4q" path="res://Scripts/resources/PickableClass.gd" id="2_edb45"]
-[ext_resource type="Resource" uid="uid://xtyhf0od1502" path="res://Resources/Enemies/TestEnemy.tres" id="2_tpgre"]
-[ext_resource type="Resource" uid="uid://cxeupcfl6348v" path="res://Resources/Enemies/TestEnemy2.tres" id="3_cs1d1"]
+[ext_resource type="Resource" uid="uid://xtyhf0od1502" path="res://Resources/Enemies/Normal/Squib.tres" id="2_tpgre"]
+[ext_resource type="Resource" uid="uid://cxeupcfl6348v" path="res://Resources/Enemies/Normal/Troglodyte.tres" id="3_cs1d1"]
 [ext_resource type="Script" uid="uid://d3yumyw0uyeoa" path="res://Scripts/resources/spawn_table.gd" id="3_jqdan"]
+[ext_resource type="Resource" uid="uid://cv4hg6mmkqa0b" path="res://Resources/Enemies/Spectral/shade.tres" id="4_kyci8"]
+[ext_resource type="Resource" uid="uid://dutjar5kh4rua" path="res://Resources/Enemies/Vamp/hex.tres" id="5_cg6yb"]
 [ext_resource type="Resource" uid="uid://bcs7qqe7myqva" path="res://Resources/Items/Attack/Sword_1.tres" id="5_u0a0a"]
 [ext_resource type="Resource" uid="uid://cc8hnhpm3ia0f" path="res://Resources/Items/Defense/Shield_1.tres" id="6_kyci8"]
 [ext_resource type="Resource" uid="uid://dctfqet35kkh0" path="res://Resources/Items/Health/Health_1.tres" id="7_cs1d1"]
@@ -13,7 +15,9 @@
 script = ExtResource("3_jqdan")
 enemy_table = Dictionary[ExtResource("1_d7nrn"), int]({
 ExtResource("2_tpgre"): 50,
-ExtResource("3_cs1d1"): 50
+ExtResource("3_cs1d1"): 20,
+ExtResource("4_kyci8"): 20,
+ExtResource("5_cg6yb"): 20
 })
 pickable_table = Dictionary[ExtResource("2_edb45"), int]({
 ExtResource("5_u0a0a"): 25,

@@ -10,4 +10,5 @@ func _ready() -> void:
 	
 func _on_area_3d_area_entered(area: Area3D) -> void:
 	playerVars.emit_signal("hit_enemy", hit_points, 
-		func(): playerVars.emit_signal("game_over", true))
+		func(): playerVars.emit_signal("game_over", true),
+		0)

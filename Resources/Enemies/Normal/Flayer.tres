@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="EnemyClass" format=3 uid="uid://cpuaa5n3c7p6u"]
+
+[ext_resource type="PackedScene" uid="uid://beklug2x3bm3x" path="res://Scenes/Models/enemy_model.tscn" id="1_lnmaq"]
+[ext_resource type="Script" uid="uid://cgx8x7jvgqkqn" path="res://Scripts/resources/EnemyClass.gd" id="2_ugrwe"]
+
+[resource]
+script = ExtResource("2_ugrwe")
+enemy_name = "Flayer"
+hit_points = 8
+xp_points = 40
+mesh = ExtResource("1_lnmaq")

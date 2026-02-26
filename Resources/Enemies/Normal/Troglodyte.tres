@@ -5,6 +5,7 @@
 
 [resource]
 script = ExtResource("1_3cu5j")
+enemy_name = "Troglodyte"
 hit_points = 2
 xp_points = 10
 mesh = ExtResource("1_7u46w")

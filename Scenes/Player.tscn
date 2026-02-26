@@ -4,13 +4,12 @@
 [ext_resource type="PackedScene" uid="uid://dlr01cwt5k1kg" path="res://Meshes/piece_base.blend" id="2_kyqiw"]
 [ext_resource type="Material" uid="uid://dqgr2g0wtv8p7" path="res://Materials/cartoon_player.tres" id="3_gntrk"]
 [ext_resource type="Script" uid="uid://7mniqtghu8cp" path="res://Scripts/player/xp_manager.gd" id="4_dewec"]
+[ext_resource type="Script" uid="uid://bt4oif1td1af8" path="res://Scripts/player/player_resources.gd" id="5_5ixxa"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_db810"]
 
 [node name="Player" type="Node3D" unique_id=1773175468]
 script = ExtResource("1_qlg84")
-shieldPointsMax = 0
-weaponPointsMax = 0
 upward_distance = 1.5
 
 [node name="piece_base" parent="." unique_id=1563011770 instance=ExtResource("2_kyqiw")]
@@ -31,5 +30,11 @@ shape = SubResource("CapsuleShape3D_db810")
 
 [node name="XPManager" type="Node" parent="." unique_id=161474855]
 script = ExtResource("4_dewec")
+
+[node name="PlayerResources" type="Node" parent="." unique_id=959209491]
+script = ExtResource("5_5ixxa")
+healthPointsMax = 6
+shieldPointsMax = 0
+weaponPointsMax = 0
 
 [editable path="piece_base"]

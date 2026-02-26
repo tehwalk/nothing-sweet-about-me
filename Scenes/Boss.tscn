@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://hfg2pwrfqbm8"]
 
-[ext_resource type="PackedScene" uid="uid://bvs702k87acpi" path="res://Resources/SpawnTables/boss_model.tscn" id="1_jdskg"]
+[ext_resource type="PackedScene" uid="uid://bvs702k87acpi" path="res://Meshes/boss_model.tscn" id="1_jdskg"]
 [ext_resource type="Script" uid="uid://bxvdjeucxyi5r" path="res://Scripts/npcs/boss.gd" id="1_rgqsi"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_jdskg"]

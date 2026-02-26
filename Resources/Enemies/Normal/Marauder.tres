@@ -5,6 +5,7 @@
 
 [resource]
 script = ExtResource("2_ndqnr")
+enemy_name = "Marauder"
 hit_points = 5
 xp_points = 25
 mesh = ExtResource("1_rh0l4")

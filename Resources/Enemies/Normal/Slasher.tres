@@ -5,6 +5,7 @@
 
 [resource]
 script = ExtResource("2_3uawf")
+enemy_name = "Slasher"
 hit_points = 4
 xp_points = 20
 mesh = ExtResource("1_3awhq")

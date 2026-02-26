@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="EnemyClass" format=3 uid="uid://cv4hg6mmkqa0b"]
+
+[ext_resource type="PackedScene" uid="uid://c8j65pc07a0o4" path="res://Scenes/Models/enemy_model_spectral.tscn" id="1_1caxk"]
+[ext_resource type="Script" uid="uid://cgx8x7jvgqkqn" path="res://Scripts/resources/EnemyClass.gd" id="1_eu1xn"]
+
+[resource]
+script = ExtResource("1_eu1xn")
+enemy_name = "Shade"
+enemy_type = 1
+xp_points = 10
+mesh = ExtResource("1_1caxk")
+metadata/_custom_type_script = "uid://cgx8x7jvgqkqn"

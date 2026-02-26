@@ -1,12 +1,15 @@
 [gd_scene format=3 uid="uid://cv1rxjdjmgdqs"]
 
+[ext_resource type="Script" uid="uid://dih4q2l2qvxm2" path="res://Scripts/pickables/mesh_cluster.gd" id="1_keotc"]
 [ext_resource type="Material" uid="uid://cyx5qck48dmx6" path="res://Materials/stylized_prop.tres" id="1_kwr85"]
 
 [sub_resource type="SphereMesh" id="SphereMesh_ciys0"]
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_kwr85"]
 
-[node name="Node3D" type="Node3D" unique_id=1539220582]
+[node name="Node3D" type="Node3D" unique_id=1539220582 node_paths=PackedStringArray("meshes")]
+script = ExtResource("1_keotc")
+meshes = [NodePath("MeshInstance3D"), NodePath("MeshInstance3D2")]
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=469750129]
 transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 0, 0.55729735, 0)

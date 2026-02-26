@@ -1,25 +1,25 @@
-[gd_scene format=3 uid="uid://beklug2x3bm3x"]
+[gd_scene format=3 uid="uid://c8j65pc07a0o4"]
 
-[ext_resource type="Material" uid="uid://coe6v0lsntqsu" path="res://Materials/cartoon_enemy.tres" id="1_5l1uq"]
-[ext_resource type="Script" uid="uid://dih4q2l2qvxm2" path="res://Scripts/pickables/mesh_cluster.gd" id="1_op2vp"]
+[ext_resource type="Script" uid="uid://dih4q2l2qvxm2" path="res://Scripts/pickables/mesh_cluster.gd" id="1_8yd3i"]
+[ext_resource type="Material" uid="uid://dqgr2g0wtv8p7" path="res://Materials/cartoon_player.tres" id="1_28qau"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_5l1uq"]
 
 [node name="Enemy_MOdel" type="Node3D" unique_id=328532900 node_paths=PackedStringArray("meshes")]
-script = ExtResource("1_op2vp")
+script = ExtResource("1_8yd3i")
 meshes = [NodePath("MeshInstance3D"), NodePath("MeshInstance3D2"), NodePath("MeshInstance3D3")]
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=739107874]
 transform = Transform3D(0.755, 0, 0, 0, 0.755, 0, 0, 0, 0.755, 0, 0.7872176, 0)
 mesh = SubResource("CapsuleMesh_5l1uq")
-surface_material_override/0 = ExtResource("1_5l1uq")
+surface_material_override/0 = ExtResource("1_28qau")
 
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="." unique_id=1206045627]
 transform = Transform3D(0.35270172, 0.25461048, 0, -0.25461048, 0.35270172, 0, 0, 0, 0.435, -0.44569117, 0.7872176, 0.014230728)
 mesh = SubResource("CapsuleMesh_5l1uq")
-surface_material_override/0 = ExtResource("1_5l1uq")
+surface_material_override/0 = ExtResource("1_28qau")
 
 [node name="MeshInstance3D3" type="MeshInstance3D" parent="." unique_id=1531211287]
 transform = Transform3D(0.3857094, -0.20112996, 0, 0.20112996, 0.3857094, 0, 0, 0, 0.435, 0.358638, 0.7872176, 0.042380452)
 mesh = SubResource("CapsuleMesh_5l1uq")
-surface_material_override/0 = ExtResource("1_5l1uq")
+surface_material_override/0 = ExtResource("1_28qau")

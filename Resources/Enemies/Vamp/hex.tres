@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="EnemyClass" format=3 uid="uid://dutjar5kh4rua"]
+
+[ext_resource type="PackedScene" uid="uid://cesy51w0k5h7c" path="res://Scenes/Models/enemy_model_vamp.tscn" id="1_5b85v"]
+[ext_resource type="Script" uid="uid://cgx8x7jvgqkqn" path="res://Scripts/resources/EnemyClass.gd" id="1_e4xdc"]
+
+[resource]
+script = ExtResource("1_e4xdc")
+enemy_name = "Hex"
+enemy_type = 2
+xp_points = 10
+mesh = ExtResource("1_5b85v")
+metadata/_custom_type_script = "uid://cgx8x7jvgqkqn"

@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="EnemyClass" format=3 uid="uid://blq7i1toikfab"]
+
+[ext_resource type="PackedScene" uid="uid://beklug2x3bm3x" path="res://Scenes/Models/enemy_model.tscn" id="1_agrdx"]
+[ext_resource type="Script" uid="uid://cgx8x7jvgqkqn" path="res://Scripts/resources/EnemyClass.gd" id="2_gbkuv"]
+
+[resource]
+script = ExtResource("2_gbkuv")
+enemy_name = "Executioner"
+hit_points = 10
+xp_points = 50
+mesh = ExtResource("1_agrdx")

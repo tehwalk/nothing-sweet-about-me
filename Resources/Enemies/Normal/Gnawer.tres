@@ -5,6 +5,7 @@
 
 [resource]
 script = ExtResource("2_nuqdy")
+enemy_name = "Gnawer"
 hit_points = 3
 xp_points = 15
 mesh = ExtResource("1_ji05m")

@@ -120,6 +120,7 @@ func _move_to_cell(my_cell):
 		if _is_any_cell_available(my_cell) == false:
 			playerVars.emit_signal("game_over", false)
 		else:
+			playerVars.emit_signal("step_made")
 			_highlight_available_cells()
 	else: print("cant pass")
 	

@@ -1,0 +1,99 @@
+[gd_scene format=3 uid="uid://bnppagl64ynp7"]
+
+[ext_resource type="Theme" uid="uid://cpp1enuwj1cu" path="res://Resources/UIElements/game_theme.tres" id="1_dvnr6"]
+[ext_resource type="Script" uid="uid://b3agrps08to5b" path="res://Scripts/pickables/ui_3d.gd" id="1_uuysn"]
+[ext_resource type="Texture2D" uid="uid://cc1ynk0y73xr2" path="res://Sprites/kenney_board-game-icons/Tilesheet/iconsDefault.png" id="2_uuysn"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_m1htj"]
+viewport_path = NodePath("SubViewport")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_uuysn"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1exfc"]
+atlas = ExtResource("2_uuysn")
+region = Rect2(768, 64, 64, 64)
+
+[node name="3DUI" type="Node3D" unique_id=1434031012 node_paths=PackedStringArray("billboard", "type_icon", "name_text", "type_text", "quantity_text")]
+script = ExtResource("1_uuysn")
+billboard = NodePath("Billboard")
+type_icon = NodePath("SubViewport/Main/Panel/VBoxContainer/QuantityContainer/TextureRect")
+name_text = NodePath("SubViewport/Main/Panel/VBoxContainer/NameText")
+type_text = NodePath("SubViewport/Main/Panel/VBoxContainer/TypeText")
+quantity_text = NodePath("SubViewport/Main/Panel/VBoxContainer/QuantityContainer/QuantityText")
+tween_time = 0.1
+
+[node name="Billboard" type="Sprite3D" parent="." unique_id=271880965]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0)
+billboard = 1
+render_priority = 1
+texture = SubResource("ViewportTexture_m1htj")
+
+[node name="SubViewport" type="SubViewport" parent="." unique_id=1026732651]
+transparent_bg = true
+
+[node name="Main" type="Control" parent="SubViewport" unique_id=1713445059]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_dvnr6")
+
+[node name="Panel" type="PanelContainer" parent="SubViewport/Main" unique_id=1177780501]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -132.3125
+offset_top = -100.5
+offset_right = 132.3125
+offset_bottom = 100.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_uuysn")
+
+[node name="ColorRect" type="ColorRect" parent="SubViewport/Main/Panel" unique_id=2024772141]
+layout_mode = 2
+color = Color(0.19215687, 0.19215687, 0.19215687, 0.5882353)
+
+[node name="p" type="Panel" parent="SubViewport/Main/Panel" unique_id=668595874]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="SubViewport/Main/Panel" unique_id=645477177]
+layout_mode = 2
+theme_override_constants/separation = 9
+alignment = 1
+
+[node name="NameText" type="Label" parent="SubViewport/Main/Panel/VBoxContainer" unique_id=550200306]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "SANGUISUGE"
+horizontal_alignment = 1
+
+[node name="TypeText" type="Label" parent="SubViewport/Main/Panel/VBoxContainer" unique_id=1308004192]
+layout_mode = 2
+theme_override_font_sizes/font_size = 34
+text = "SANGUISUGE"
+horizontal_alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="SubViewport/Main/Panel/VBoxContainer" unique_id=2040548053]
+layout_mode = 2
+
+[node name="QuantityContainer" type="HBoxContainer" parent="SubViewport/Main/Panel/VBoxContainer" unique_id=243583556]
+layout_mode = 2
+theme = ExtResource("1_dvnr6")
+theme_override_constants/separation = 12
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="SubViewport/Main/Panel/VBoxContainer/QuantityContainer" unique_id=1096285814]
+layout_mode = 2
+texture = SubResource("AtlasTexture_1exfc")
+expand_mode = 3
+
+[node name="QuantityText" type="Label" parent="SubViewport/Main/Panel/VBoxContainer/QuantityContainer" unique_id=1687966808]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "1"

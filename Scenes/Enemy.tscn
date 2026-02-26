@@ -1,22 +1,13 @@
 [gd_scene format=3 uid="uid://kii8tq7ccw3t"]
 
 [ext_resource type="Script" uid="uid://igb85twwjnt2" path="res://Scripts/npcs/EnemyBehaviour.gd" id="1_3x4x8"]
-[ext_resource type="Theme" uid="uid://cpp1enuwj1cu" path="res://Resources/UIElements/game_theme.tres" id="2_xeo28"]
-[ext_resource type="Texture2D" uid="uid://cc1ynk0y73xr2" path="res://Sprites/kenney_board-game-icons/Tilesheet/iconsDefault.png" id="3_kpr8r"]
+[ext_resource type="PackedScene" uid="uid://bnppagl64ynp7" path="res://Scenes/3dui.tscn" id="4_kpr8r"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_mpgh0"]
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_m1htj"]
-viewport_path = NodePath("SubViewport")
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_1exfc"]
-atlas = ExtResource("3_kpr8r")
-region = Rect2(768, 64, 64, 64)
-
-[node name="Enemy" type="Node3D" unique_id=1863453812 node_paths=PackedStringArray("ui", "life_label")]
+[node name="Enemy" type="Node3D" unique_id=1863453812 node_paths=PackedStringArray("ui3d")]
 script = ExtResource("1_3x4x8")
-ui = NodePath("3DUI")
-life_label = NodePath("SubViewport/Main/LifeContainer/LifeText")
+ui3d = NodePath("3DUI2")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=596272086]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.97, 0)
@@ -29,62 +20,7 @@ input_ray_pickable = false
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=827135721]
 shape = SubResource("BoxShape3D_mpgh0")
 
-[node name="3DUI" type="Sprite3D" parent="." unique_id=168062601]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0)
-billboard = 1
-render_priority = 1
-texture = SubResource("ViewportTexture_m1htj")
-
-[node name="SubViewport" type="SubViewport" parent="." unique_id=512049782]
-transparent_bg = true
-
-[node name="Main" type="Control" parent="SubViewport" unique_id=1363048510]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="Panel" type="Panel" parent="SubViewport/Main" unique_id=428424751]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -98.0
-offset_top = -53.9375
-offset_right = 98.0
-offset_bottom = 53.9375
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="LifeContainer" type="HBoxContainer" parent="SubViewport/Main" unique_id=1107659111]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -20.0
-offset_right = 20.0
-offset_bottom = 20.0
-grow_horizontal = 2
-grow_vertical = 2
-theme = ExtResource("2_xeo28")
-theme_override_constants/separation = 12
-alignment = 1
-
-[node name="TextureRect" type="TextureRect" parent="SubViewport/Main/LifeContainer" unique_id=816500856]
-layout_mode = 2
-texture = SubResource("AtlasTexture_1exfc")
-expand_mode = 3
-
-[node name="LifeText" type="Label" parent="SubViewport/Main/LifeContainer" unique_id=464103373]
-layout_mode = 2
-theme_override_font_sizes/font_size = 40
-text = "FUK"
+[node name="3DUI2" parent="." unique_id=1180156952 instance=ExtResource("4_kpr8r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 
 [connection signal="area_shape_entered" from="Area3D" to="." method="_on_area_3d_area_shape_entered"]

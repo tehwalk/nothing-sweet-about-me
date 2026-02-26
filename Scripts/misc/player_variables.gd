@@ -2,6 +2,7 @@ extends Node
 enum PickType {HEALTH, WEAPON, SHIELD, GOLD}
 
 signal changed_pos(cell)
+signal step_made
 signal cell_destroyed
 signal hit_enemy(points, action)
 signal get_xp(points)

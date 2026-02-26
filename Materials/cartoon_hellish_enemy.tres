@@ -1,0 +1,29 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://dxfmff8mvsf1b"]
+
+[ext_resource type="Shader" uid="uid://ejwdm32v40km" path="res://addons/flexible_toon_shader/hatch_toon.gdshader" id="1_g1744"]
+
+[sub_resource type="Gradient" id="Gradient_4xqcx"]
+offsets = PackedFloat32Array(0)
+colors = PackedColorArray(1, 0.32270145, 0.39614242, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_do21y"]
+gradient = SubResource("Gradient_4xqcx")
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_1liuo"]
+load_path = "res://.godot/imported/a2_opaque.png-ec33720d0bfd527db1067be9c7aa162a.s3tc.ctex"
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_g1744")
+shader_parameter/albedo = Color(1, 1, 1, 1)
+shader_parameter/albedo_texture = SubResource("GradientTexture1D_do21y")
+shader_parameter/cuts = 8
+shader_parameter/wrap = 0.0
+shader_parameter/steepness = 1.11200000532
+shader_parameter/use_attenuation = true
+shader_parameter/use_rim = false
+shader_parameter/rim_width = 8.0
+shader_parameter/rim_color = Color(1, 1, 1, 1)
+shader_parameter/hatch_scale = 0.515
+shader_parameter/use_triplanar = true
+shader_parameter/hatch_texture = SubResource("CompressedTexture2D_1liuo")

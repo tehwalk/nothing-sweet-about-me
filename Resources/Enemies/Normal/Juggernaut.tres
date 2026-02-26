@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="EnemyClass" format=3 uid="uid://ceyxshhwvoxfc"]
+
+[ext_resource type="PackedScene" uid="uid://beklug2x3bm3x" path="res://Scenes/Models/enemy_model.tscn" id="1_wm5v5"]
+[ext_resource type="Script" uid="uid://cgx8x7jvgqkqn" path="res://Scripts/resources/EnemyClass.gd" id="2_7jm25"]
+
+[resource]
+script = ExtResource("2_7jm25")
+enemy_name = "Juggernaut"
+hit_points = 9
+xp_points = 45
+mesh = ExtResource("1_wm5v5")

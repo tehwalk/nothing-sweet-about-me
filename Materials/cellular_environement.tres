@@ -1,0 +1,20 @@
+[gd_resource type="Environment" format=3 uid="uid://c0wacups8rwxk"]
+
+[ext_resource type="Material" uid="uid://7oy746vt8jfv" path="res://Materials/new_panorama_sky_material.tres" id="1_hnt5e"]
+
+[sub_resource type="Sky" id="Sky_ggebb"]
+sky_material = ExtResource("1_hnt5e")
+
+[resource]
+background_mode = 2
+background_energy_multiplier = 0.5
+sky = SubResource("Sky_ggebb")
+ambient_light_color = Color(0.4627451, 0.73333335, 0.050980393, 1)
+fog_light_energy = 0.36
+fog_sun_scatter = 5.35
+fog_density = 0.1231
+fog_depth_curve = 2.928175
+volumetric_fog_density = 0.3543
+adjustment_enabled = true
+adjustment_brightness = 1.35
+adjustment_contrast = 1.09

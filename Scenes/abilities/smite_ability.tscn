@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://kjv071bla087"]
+
+[ext_resource type="Script" uid="uid://blwo87702epdc" path="res://Scripts/abilities/smite.gd" id="1_7jkg4"]
+
+[node name="SmiteAbility" type="Node" unique_id=1212119763]
+script = ExtResource("1_7jkg4")
+ability_name = "Untouchable"
+description = "When the player goes on a cell with an enemy atop, instantly kills it without touching the Player's resources."
+steps_cap = 2

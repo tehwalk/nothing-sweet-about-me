@@ -1,9 +1,9 @@
 [gd_resource type="Resource" script_class="SpawnTable" format=3 uid="uid://c1f5jlgttetac"]
 
 [ext_resource type="Script" uid="uid://cgx8x7jvgqkqn" path="res://Scripts/resources/EnemyClass.gd" id="1_rpwxk"]
-[ext_resource type="Resource" uid="uid://cxeupcfl6348v" path="res://Resources/Enemies/TestEnemy2.tres" id="2_u0k5j"]
-[ext_resource type="Resource" uid="uid://ckoo80r3urukr" path="res://Resources/Enemies/TestEnemy3.tres" id="3_td545"]
-[ext_resource type="Resource" uid="uid://dbtx8bevr7pla" path="res://Resources/Enemies/TestEnemy4.tres" id="4_5ktru"]
+[ext_resource type="Resource" uid="uid://cxeupcfl6348v" path="res://Resources/Enemies/Normal/Troglodyte.tres" id="2_u0k5j"]
+[ext_resource type="Resource" uid="uid://ckoo80r3urukr" path="res://Resources/Enemies/Normal/Gnawer.tres" id="3_td545"]
+[ext_resource type="Resource" uid="uid://dbtx8bevr7pla" path="res://Resources/Enemies/Normal/Slasher.tres" id="4_5ktru"]
 [ext_resource type="Script" uid="uid://ddcxq83tfwp4q" path="res://Scripts/resources/PickableClass.gd" id="5_a638r"]
 [ext_resource type="Resource" uid="uid://bcs7qqe7myqva" path="res://Resources/Items/Attack/Sword_1.tres" id="6_e3ify"]
 [ext_resource type="Resource" uid="uid://ditw6qo8y8ehm" path="res://Resources/Items/Attack/Sword_2.tres" id="7_g8wk3"]

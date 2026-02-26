@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="EnemyClass" format=3 uid="uid://b73nlk3i87dmw"]
+
+[ext_resource type="PackedScene" uid="uid://dh8csqxq6id7n" path="res://Scenes/Models/enemy_model_hellish.tscn" id="1_0v8qs"]
+[ext_resource type="Script" uid="uid://cgx8x7jvgqkqn" path="res://Scripts/resources/EnemyClass.gd" id="1_i8xe7"]
+
+[resource]
+script = ExtResource("1_i8xe7")
+enemy_name = "Archfiend"
+enemy_type = 3
+hit_points = 2
+xp_points = 20
+mesh = ExtResource("1_0v8qs")
+metadata/_custom_type_script = "uid://cgx8x7jvgqkqn"
